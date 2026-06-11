@@ -11,7 +11,7 @@
         <div class="nav-logo">
             <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
         </div>
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <button class="hamburger" id="hamburger-btn">☰</button>
         <div class="nav-links" id="nav-menu">
             <a href="index.html">Home</a>
             <a href="aed.html">AED Locations</a>
@@ -22,11 +22,7 @@
             <a href="contact.html">Contact</a>
         </div>
     </nav>
-    <script>
-        function toggleMenu() {
-            document.getElementById("nav-menu").classList.toggle("active");
-        }
-    </script>
+
     <main class="container">
         <h2>What We Do</h2>
         
@@ -74,5 +70,18 @@
         <p>&copy; 2026 Dingle Heart Safe. All Rights Reserved.</p>
         <p><a href="privacy.html">Privacy Policy</a></p>
     </footer>
+
+    <!-- Safe Menu Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const navMenu = document.getElementById('nav-menu');
+            if (hamburgerBtn && navMenu) {
+                hamburgerBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
