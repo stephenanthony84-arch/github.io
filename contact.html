@@ -8,9 +8,16 @@
 </head>
 <body>
     <!-- Paste Navigation Here -->
+    <!-- Universal Navigation Banner -->
     <nav>
-        <div class="nav-logo"><a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a></div>
-        <div class="nav-links">
+        <div class="nav-logo">
+            <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
+        </div>
+        
+        <!-- Hamburger Button -->
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        
+        <div class="nav-links" id="nav-menu">
             <a href="index.html">Home</a>
             <a href="aed.html">AED Locations</a>
             <a href="who-we-are.html">Who We Are</a>
@@ -20,6 +27,13 @@
             <a href="contact.html">Contact</a>
         </div>
     </nav>
+
+    <!-- Tiny script to make the menu open and close -->
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("active");
+        }
+    </script>
     <main class="container text-center">
         <h2>Contact</h2>
         <div class="card" style="max-width: 600px; margin: 0 auto;">
