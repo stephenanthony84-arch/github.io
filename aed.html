@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AED Locations - Dingle Heart Safe</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .aed-wrapper {
+            background: linear-gradient(rgba(227, 24, 55, 0.85), rgba(227, 24, 55, 0.85)), url('Dinlge Map Image.jpg') center/cover;
+            color: var(--light); padding: 4rem 2rem; border-radius: 8px; margin-top: 2rem;
+        }
+        .aed-wrapper h2 { color: white; }
+        
+        /* New custom styling for the larger map */
+        .map-large {
+            width: 100%; /* Roughly 2.2x wider than the previous grid column */
+            height: 800px; /* Twice as tall as the previous aspect ratio */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            background: #e5e3df;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .map-large iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Universal Navigation -->
+    <nav>
+        <div class="nav-logo"><a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="aed.html">AED Locations</a>
+            <a href="who-we-are.html">Who We Are</a>
+            <a href="what-we-do.html">What We Do</a>
+            <a href="donate.html">Donate</a>
+            <a href="join.html">Join</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    
+    <main class="container text-center">
+        <h2>AED Locations</h2>
+        <p>The group manages and maintains a network of public access AEDs around the town and the broader Dingle peninsula.</p>
+        
+        <div class="aed-wrapper">
+            
+            <div class="card text-center" style="color: var(--dark); max-width: 800px; margin: 0 auto 2rem auto;">
+                <h3>Find an AED Near You</h3>
+                <p>Knowing where your nearest Automated External Defibrillator is located can save a life in an emergency. Explore the interactive map to locate the nearest unit to your home, workplace, or route.</p>
+            </div>
+
+            <!-- Google Maps Interactive Embed (Enlarged) -->
+            <div class="map-large">
+                <iframe 
+                    src="https://maps.google.com/maps?q=AED+near+Dingle+Peninsula&amp;ll=52.1899286,-10.3945313&amp;z=11&amp;hl=en&amp;output=embed" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <!-- Important Notice -->
+            <div style="background: rgba(26, 10, 14, 0.8); padding: 1.5rem; border-radius: 8px; margin-bottom: 3rem; border-left: 4px solid white;">
+                <p style="color: white; font-size: 1.2rem; font-weight: bold; margin: 0;">
+                    Please contact us if you notice damaged or missing AEDs, or if the locations of the AEDs noted on the map are incorrect.
+                </p>
+            </div>
+
+            <!-- Image 8 below the map -->
+            <div>
+                <img src="Image 8.jpg" alt="AED Location Detail" style="box-shadow: 0 10px 20px rgba(0,0,0,0.5); border-radius: 8px; max-width: 100%;">
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <img src="CFR Logo.png" alt="Logo">
+        <p>&copy; 2026 Dingle Heart Safe. All Rights Reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
