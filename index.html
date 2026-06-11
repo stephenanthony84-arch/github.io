@@ -6,7 +6,6 @@
     <title>Home - Dingle Heart Safe</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Updated hero section so it sits neatly below the banner */
         #hero {
             min-height: calc(100vh - 70px);
             background: linear-gradient(rgba(26, 10, 14, 0.6), rgba(26, 10, 14, 0.6)), url('Image 6.jpeg') center/cover no-repeat;
@@ -38,28 +37,14 @@
             from { background-position: 0 0; } 
             to { background-position: -500px 0; } 
         }
-        .hero-logo {
-            width: 200px;
-            height: auto;
-            margin-bottom: 1.5rem;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
-            background: white;
-            border-radius: 50%;
-            padding: 10px;
-        }
     </style>
 </head>
 <body>
-    <!-- Universal Navigation Banner -->
-    <!-- Universal Navigation Banner -->
     <nav>
         <div class="nav-logo">
             <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
         </div>
-        
-        <!-- Hamburger Button -->
         <button class="hamburger" onclick="toggleMenu()">☰</button>
-        
         <div class="nav-links" id="nav-menu">
             <a href="index.html">Home</a>
             <a href="aed.html">AED Locations</a>
@@ -70,8 +55,6 @@
             <a href="contact.html">Contact</a>
         </div>
     </nav>
-
-    <!-- Tiny script to make the menu open and close -->
     <script>
         function toggleMenu() {
             document.getElementById("nav-menu").classList.toggle("active");

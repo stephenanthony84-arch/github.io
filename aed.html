@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AED Locations - Dingle Heart Safe</title>
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -12,10 +12,9 @@
         }
         .aed-wrapper h2 { color: white; }
         
-        /* New custom styling for the larger map */
         .map-large {
-            width: 100%; /* Roughly 2.2x wider than the previous grid column */
-            height: 800px; /* Twice as tall as the previous aspect ratio */
+            width: 100%; 
+            height: 800px; 
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
@@ -35,16 +34,11 @@
     </style>
 </head>
 <body>
-    <!-- Universal Navigation -->
-    <!-- Universal Navigation Banner -->
     <nav>
         <div class="nav-logo">
             <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
         </div>
-        
-        <!-- Hamburger Button -->
         <button class="hamburger" onclick="toggleMenu()">☰</button>
-        
         <div class="nav-links" id="nav-menu">
             <a href="index.html">Home</a>
             <a href="aed.html">AED Locations</a>
@@ -55,8 +49,6 @@
             <a href="contact.html">Contact</a>
         </div>
     </nav>
-
-    <!-- Tiny script to make the menu open and close -->
     <script>
         function toggleMenu() {
             document.getElementById("nav-menu").classList.toggle("active");
@@ -68,13 +60,11 @@
         <p>The group manages and maintains a network of public access AEDs around the town and the broader Dingle peninsula.</p>
         
         <div class="aed-wrapper">
-            
             <div class="card text-center" style="color: var(--dark); max-width: 800px; margin: 0 auto 2rem auto;">
                 <h3>Find an AED Near You</h3>
                 <p>Knowing where your nearest Automated External Defibrillator is located can save a life in an emergency. Explore the interactive map to locate the nearest unit to your home, workplace, or route.</p>
             </div>
 
-            <!-- Google Maps Interactive Embed (Enlarged) -->
             <div class="map-large">
                 <iframe 
                     src="https://maps.google.com/maps?q=AED+near+Dingle+Peninsula&amp;ll=52.1899286,-10.3945313&amp;z=11&amp;hl=en&amp;output=embed" 
@@ -84,18 +74,15 @@
                 </iframe>
             </div>
 
-            <!-- Important Notice -->
             <div style="background: rgba(26, 10, 14, 0.8); padding: 1.5rem; border-radius: 8px; margin-bottom: 3rem; border-left: 4px solid white;">
                 <p style="color: white; font-size: 1.2rem; font-weight: bold; margin: 0;">
                     Please contact us if you notice damaged or missing AEDs, or if the locations of the AEDs noted on the map are incorrect.
                 </p>
             </div>
 
-            <!-- Image 8 below the map -->
             <div>
-                <img src="Image 8.jpg" alt="AED Location Detail" style="box-shadow: 0 10px 20px rgba(0,0,0,0.5); border-radius: 8px; max-width: 100%;">
+                <img src="Image 8.jpeg" alt="AED Location Detail" style="box-shadow: 0 10px 20px rgba(0,0,0,0.5); border-radius: 8px; max-width: 100%;">
             </div>
-
         </div>
     </main>
 

@@ -53,10 +53,6 @@ nav {
 .nav-links a { color: var(--dark); font-size: 0.9rem; text-transform: uppercase; font-weight: 600; }
 .nav-links a:hover { color: var(--primary); }
 
-/* Footer */
-footer { background: var(--dark); color: var(--light); padding: 3rem 2rem; text-align: center; }
-footer img { height: 80px; margin-bottom: 1rem; }
-footer a { color: var(--blush); font-weight: normal; }
 /* Hamburger Menu Button (Hidden on Desktop) */
 .hamburger {
     display: none;
@@ -66,98 +62,31 @@ footer a { color: var(--blush); font-weight: normal; }
     cursor: pointer;
     color: var(--primary);
 }
-@media(max-width: 768px) {
-    .grid-2 { grid-template-columns: 1fr; }
-    
-    /* Keep the nav fixed at the top */
-    nav { 
-        position: fixed; 
-        padding: 0.5rem 1rem; 
-    }
-    
-    /* Show the hamburger button */
-    .hamburger { 
-        display: block; 
-    }
-    
-    /* Hide the links by default and style them as a drop-down */
-    .nav-links { 
-        display: none; 
-        flex-direction: column; 
-        position: absolute; 
-        top: 70px; /* Positions it right below the white banner */
-        left: 0; 
-        width: 100%; 
-        background: rgba(255, 248, 248, 0.98); 
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-        padding: 0;
-    }
-    
-    /* This class is added by Javascript to open the menu */
-    .nav-links.active { 
-        display: flex; 
-    }
-    
-    /* Make the links larger and easier to tap on mobile */
-    .nav-links a { 
-        padding: 1rem 2rem; 
-        border-bottom: 1px solid #eee; 
-        width: 100%; 
-        box-sizing: border-box; 
-    }
 
-    /* Ensure body content doesn't hide behind the fixed nav */
-    body {
-        padding-top: 70px;
-    }
-    
-    #hero {
-        min-height: calc(100vh - 70px);
-        margin-top: 0;
-    }
-}    
-    /* Ensure the body doesn't have excess padding since the nav is no longer fixed */
-    body { 
-        padding-top: 0; 
-    }
-    
-    /* Stack the navigation links nicely instead of hiding them */
-    .nav-links { 
-        display: flex; 
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 0.8rem; 
-        margin-top: 1rem;
-    }
-    
-    /* Fix the landing page hero overlap */
-    #hero {
-        height: auto;
-        min-height: 80vh;
-        margin-top: 0 !important; /* Removes the negative margin pulling it under the nav */
-        padding: 4rem 1rem;
-    }
-}
+/* Footer */
+footer { background: var(--dark); color: var(--light); padding: 3rem 2rem; text-align: center; }
+footer img { height: 80px; margin-bottom: 1rem; }
+footer a { color: var(--blush); font-weight: normal; }
 
 /* New additions for Hero Logo and Google Maps */
 .hero-logo {
-    width: 200px; /* Makes the logo prominent */
+    width: 200px; 
     height: auto;
     margin-bottom: 1.5rem;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
     background: white;
-    border-radius: 50%; /* Keeps the circular badge look clean */
+    border-radius: 50%; 
     padding: 10px;
 }
 
 .map-container {
     position: relative;
-    padding-bottom: 75%; /* Aspect ratio for the map */
+    padding-bottom: 75%; 
     height: 0;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    background: #e5e3df; /* Placeholder loading color */
+    background: #e5e3df; 
 }
 
 .map-container iframe {
@@ -167,4 +96,51 @@ footer a { color: var(--blush); font-weight: normal; }
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+/* Mobile Styles (Cleaned up and fixed) */
+@media(max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    
+    nav { 
+        position: fixed; 
+        padding: 0.5rem 1rem; 
+    }
+    
+    .hamburger { 
+        display: block; 
+    }
+    
+    .nav-links { 
+        display: none; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 70px; 
+        left: 0; 
+        width: 100%; 
+        background: rgba(255, 248, 248, 0.98); 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        padding: 0;
+    }
+    
+    .nav-links.active { 
+        display: flex; 
+    }
+    
+    .nav-links a { 
+        padding: 1rem 2rem; 
+        border-bottom: 1px solid #eee; 
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+
+    body {
+        padding-top: 70px;
+    }
+    
+    #hero {
+        min-height: calc(100vh - 70px);
+        margin-top: 0;
+        padding: 4rem 1rem;
+    }
 }
