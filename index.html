@@ -6,86 +6,36 @@
     <title>Home - Dingle Heart Safe</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        #hero {
-            min-height: calc(100vh - 70px);
-            background: linear-gradient(rgba(26, 10, 14, 0.75), rgba(26, 10, 14, 0.85)), url('Image 1.jpeg') center/cover no-repeat;
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center;
-            text-align: center; 
-            position: relative; 
-            padding: 4rem 2rem; 
-            box-sizing: border-box;
-        }
-
-        .hero-title-container {
-            animation: fadeInUp 1s ease-out forwards;
-            opacity: 0;
-            margin-bottom: 2rem;
-        }
-
+        /* Override and perfect the ECG animation locally */
         .ecg-container {
-            position: relative; 
             width: 100%; 
-            max-width: 500px;
+            max-width: 600px;
             height: 80px; 
+            margin: 0 auto 2rem;
+            position: relative;
             overflow: hidden; 
-            display: flex; 
-            justify-content: center;
-            margin-bottom: 2rem;
+            /* Softly fades out the left and right edges for a professional screen effect */
+            mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
         }
 
         .ecg-line {
-            width: 50%; height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 100'%3E%3Cpath fill='none' stroke='%23E31837' stroke-width='4' d='M0,50 L150,50 L170,20 L190,80 L220,10 L250,90 L270,40 L290,60 L310,50 L500,50'/%3E%3C/svg%3E");
-            background-repeat: repeat-x; 
-            background-size: contain; 
-            animation: ecg-scroll 3s linear infinite;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200vw; /* Massive width ensures it never runs out of background to show */
+            height: 100%;
+            /* Re-drawn, medically accurate ECG heartbeat path mapped exactly to 400px width */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='80' viewBox='0 0 400 80'%3E%3Cpath d='M0,40 L100,40 L110,32 L120,40 L140,40 L145,48 L155,5 L165,75 L175,40 L200,40 L220,25 L240,40 L400,40' fill='none' stroke='%23E31837' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            background-position: left center;
+            background-size: 400px 80px; /* Exact match to SVG width ensures mathematically seamless looping */
+            animation: smoothEcg 2.2s linear infinite;
         }
 
-        .hero-logo-bottom {
-            width: 180px; 
-            height: auto;
-            margin-top: 1rem; 
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
-            background: white;
-            border-radius: 50%; 
-            padding: 10px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        @keyframes ecg-scroll { 
-            from { background-position: 0 0; } 
-            to { background-position: -500px 0; } 
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .subtitle {
-            color: white; 
-            font-size: 1.5rem; 
-            max-width: 600px;
-            margin-top: 0;
-            margin-bottom: 2.5rem;
-        }
-
-        /* Responsive button container */
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap; /* Allows wrapping on mobile */
-            margin-top: 3rem;
-            max-width: 800px;
+        @keyframes smoothEcg {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-400px); } /* Translates exactly one SVG cycle unit */
         }
     </style>
 </head>
@@ -96,7 +46,7 @@
         </div>
         <button class="hamburger" id="hamburger-btn">☰</button>
         <div class="nav-links" id="nav-menu">
-            <a href="index.html">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="aed.html">AED Locations</a>
             <a href="who-we-are.html">Who We Are</a>
             <a href="what-we-do.html">What We Do</a>
@@ -107,23 +57,19 @@
     </nav>
 
     <header id="hero">
-        <!-- Title -->
         <div class="hero-title-container">
-            <h1 style="margin-bottom: 0.5rem; font-size: 4rem;">Dingle Heart Safe</h1>
+            <h1 style="color: white;">Dingle Heart Safe</h1>
+            <h2 style="color: var(--primary); margin-bottom: 0;">Community First Responders</h2>
         </div>
 
-        <!-- ECG Line -->
         <div class="ecg-container">
             <div class="ecg-line"></div>
         </div>
 
-        <!-- Subtitle -->
-        <p class="subtitle">Assisting in the response to medical emergencies on the Dingle peninsula.</p>
+        <p class="subtitle">Assisting in the response to medical emergencies on the Dingle Peninsula.</p>
 
-        <!-- Logo -->
         <img src="CFR Logo.png" alt="Dingle Heart Safe Logo" class="hero-logo-bottom">
         
-        <!-- Buttons: All using .btn class for uniform size/color/shape -->
         <div class="btn-group">
             <a href="aed.html" class="btn">AED Locations</a>
             <a href="what-we-do.html" class="btn">What We Do</a>

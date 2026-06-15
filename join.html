@@ -8,9 +8,7 @@
 </head>
 <body>
     <nav>
-        <div class="nav-logo">
-            <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
-        </div>
+        <div class="nav-logo"><a href="index.html"><img src="CFR Logo.png" alt="Logo"></a></div>
         <button class="hamburger" id="hamburger-btn">☰</button>
         <div class="nav-links" id="nav-menu">
             <a href="index.html">Home</a>
@@ -18,26 +16,25 @@
             <a href="who-we-are.html">Who We Are</a>
             <a href="what-we-do.html">What We Do</a>
             <a href="donate.html">Donate</a>
-            <a href="join.html">Join</a>
+            <a href="join.html" class="active">Join</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
 
     <main class="container">
-        <div class="bg-blush" style="padding: 3rem 2rem;">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Join Our Team</h2>
+        <div class="bg-blush" style="padding: 4rem 2rem;">
+            <h2>Join Our Team</h2>
             <div class="grid-2">
                 <div>
-                    <img src="Image 5.jpeg" alt="First responder equipment and training files">
+                    <img src="Image 5.jpeg" alt="New volunteer training">
                 </div>
                 <div>
-                    <h3>Make a Direct Difference</h3>
-                    <p>Our volunteers offer comfort in the moments before the ambulance crew arrives. We help by providing basic, practical support, like performing CPR or deploying an AED, to bridge the gap during the wait.</p>
-                    <p>If you would like to support your community in a meaningful way, we would love to welcome you to our team. We provide full, accredited training, and absolutely no prior medical experience is needed.</p>
+                    <p style="font-size: 1.1rem;">When a cardiac emergency strikes, every single minute counts. As a CFR, you could be the person who starts the chain of survival while the ambulance is on its way. You don't just stand by; you step in when your neighbors can't wait.</p>
+                    <p style="font-size: 1.1rem;">If you would like to support your community in a meaningful way, we would love to welcome you to our team. We provide full, accredited training, and absolutely no prior medical experience is needed.</p>
                     
-                    <div style="margin-top: 2.5rem; padding: 1.8rem; background: white; border-left: 5px solid var(--primary); border-radius: 8px; box-shadow: var(--card-shadow);">
+                    <div class="highlight-box">
                         <p style="margin: 0; font-weight: 500;">
-                            Email us at <a href="mailto:cfrdingle@gmail.com" style="text-decoration: underline;">cfrdingle@gmail.com</a> to learn more about the process of joining.
+                            Email us at <a href="mailto:cfrdingle@gmail.com" style="text-decoration: underline; color: var(--primary);">cfrdingle@gmail.com</a> to learn more about the process of joining.
                         </p>
                     </div>
                 </div>
@@ -52,14 +49,8 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const navMenu = document.getElementById('nav-menu');
-            if (hamburgerBtn && navMenu) {
-                hamburgerBtn.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                });
-            }
+        document.getElementById('hamburger-btn').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('active');
         });
     </script>
 </body>

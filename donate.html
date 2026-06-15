@@ -8,16 +8,14 @@
 </head>
 <body>
     <nav>
-        <div class="nav-logo">
-            <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
-        </div>
+        <div class="nav-logo"><a href="index.html"><img src="CFR Logo.png" alt="Logo"></a></div>
         <button class="hamburger" id="hamburger-btn">☰</button>
         <div class="nav-links" id="nav-menu">
             <a href="index.html">Home</a>
             <a href="aed.html">AED Locations</a>
             <a href="who-we-are.html">Who We Are</a>
             <a href="what-we-do.html">What We Do</a>
-            <a href="donate.html">Donate</a>
+            <a href="donate.html" class="active">Donate</a>
             <a href="join.html">Join</a>
             <a href="contact.html">Contact</a>
         </div>
@@ -29,14 +27,17 @@
             <div class="card">
                 <h3>Where do your donations go?</h3>
                 <p><small style="color: var(--primary); font-weight: 600;">Processed securely by iDonate. We do not store card details.</small></p>
-                <p>We welcome donations from anyone, small or big as every little helps. Funding maintains medical gear ready for emergency calls:</p>
-                <ul class="custom-list">
+                <p>Our group is entirely volunteer-run and relies solely on the generosity of the public and local businesses to operate. Your donations directly fund the purchase and maintenance of life-saving equipment on the peninsula.</p>
+                
+                <ul style="line-height: 1.8; margin-bottom: 2rem;">
                     <li><strong>AED Purchase:</strong> €1,200</li>
                     <li><strong>Replacement AED pads:</strong> €160</li>
                     <li><strong>Replacement AED Response Kit:</strong> €30 (Facemask, Scissors, Towel, Razor)</li>
                 </ul>
-                <p>Kitting out our responders is only possible with generous donations made by members of the public and local businesses. If you’re in a position to donate, please click below.</p>
-                <a href="https://www.idonate.ie/cause/DingleCFR1" target="_blank" class="btn">Donate Securely Now</a>
+                
+                <p>Kitting out our responders is only possible with generous donations. If you’re in a position to donate, please click below.</p>
+                
+                <a href="https://www.idonate.ie/cause/DingleCFR1" target="_blank" class="btn" style="margin-top: 1rem;">Donate Securely Now</a>
             </div>
             <div>
                 <img src="Image 7.jpeg" alt="Emergency equipment setup showing where donations go">
@@ -51,14 +52,8 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const navMenu = document.getElementById('nav-menu');
-            if (hamburgerBtn && navMenu) {
-                hamburgerBtn.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                });
-            }
+        document.getElementById('hamburger-btn').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('active');
         });
     </script>
 </body>

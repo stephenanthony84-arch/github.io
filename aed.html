@@ -5,34 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AED Locations - Dingle Heart Safe</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .aed-wrapper {
-            background: linear-gradient(rgba(227, 24, 55, 0.88), rgba(227, 24, 55, 0.92)), url('Image 6.jpeg') center/cover;
-            color: var(--light); 
-            padding: 4rem 2rem; 
-            border-radius: 16px; 
-            margin-top: 2rem;
-            box-shadow: var(--card-shadow);
-        }
-        .aed-wrapper h2 { color: white; }
-        
-        .map-large {
-            width: 100%; 
-            height: 600px; 
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.3);
-            background: #e5e3df;
-            margin-bottom: 2.5rem;
-            position: relative;
-        }
-        
-        .map-large iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            border: 0;
-        }
-    </style>
 </head>
 <body>
     <nav>
@@ -42,7 +14,7 @@
         <button class="hamburger" id="hamburger-btn">☰</button>
         <div class="nav-links" id="nav-menu">
             <a href="index.html">Home</a>
-            <a href="aed.html">AED Locations</a>
+            <a href="aed.html" class="active">AED Locations</a>
             <a href="who-we-are.html">Who We Are</a>
             <a href="what-we-do.html">What We Do</a>
             <a href="donate.html">Donate</a>
@@ -52,24 +24,32 @@
     </nav>
 
     <main class="container">
-        <div class="aed-wrapper text-center">
-            <h2>AED Locations Map</h2>
+        <h2>Defibrillator (AED) Locations</h2>
+        
+        <div class="card" style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">
+            <h3>In an emergency, always dial 999 or 112 first.</h3>
+            <p>The ambulance dispatcher will tell you where your nearest accessible AED is located and provide the access code if the cabinet is locked.</p>
+        </div>
+
+        <div class="aed-wrapper">
+            <h2 style="color: white;">Interactive Location Map</h2>
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Explore the map below to familiarize yourself with public access AEDs on the Dingle Peninsula.</p>
             
             <div class="map-large">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19643.771960146313!2d-10.28285555!3d52.14154445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x484fe91795325857%3A0xa00c7a997317370!2sDingle%2C%20Co.%20Kerry!5e0!3m2!1sen!2sie!4v1710000000000!5m2!1sen!2sie" 
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1h410k8QhS3J_D36P9E5QjS8sB1F_G1c&ehbc=2E312F&noprof=1" 
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
 
-            <div style="background: rgba(26, 10, 14, 0.85); padding: 1.8rem; border-radius: 12px; margin-bottom: 3.5rem; border-left: 5px solid white; text-align: left;">
-                <p style="color: white; font-size: 1.2rem; font-weight: bold; margin: 0;">
+            <div style="background: rgba(26, 10, 14, 0.85); padding: 1.8rem; border-radius: 12px; margin-bottom: 3.5rem; border-left: 5px solid white;">
+                <p style="color: white; font-size: 1.1rem; font-weight: 500; margin: 0;">
                     Please contact us if you notice damaged or missing AEDs, or if the locations of the AEDs noted on the map are incorrect.
                 </p>
             </div>
 
-            <div style="margin-top: 2rem;">
-                <img src="Image 1.jpg" alt="AED Location Detail" style="box-shadow: 0 12px 28px rgba(0,0,0,0.4); border-radius: 12px; max-width: 100%;">
+            <div>
+                <img src="Image 1.jpeg" alt="AED Location Detail" style="box-shadow: 0 12px 28px rgba(0,0,0,0.4); border-radius: 12px; width: 100%;">
             </div>
         </div>
     </main>
@@ -82,13 +62,9 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const navMenu = document.getElementById('nav-menu');
-            if (hamburgerBtn && navMenu) {
-                hamburgerBtn.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                });
-            }
+            document.getElementById('hamburger-btn').addEventListener('click', function() {
+                document.getElementById('nav-menu').classList.toggle('active');
+            });
         });
     </script>
 </body>

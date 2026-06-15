@@ -8,14 +8,12 @@
 </head>
 <body>
     <nav>
-        <div class="nav-logo">
-            <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
-        </div>
+        <div class="nav-logo"><a href="index.html"><img src="CFR Logo.png" alt="Logo"></a></div>
         <button class="hamburger" id="hamburger-btn">☰</button>
         <div class="nav-links" id="nav-menu">
             <a href="index.html">Home</a>
             <a href="aed.html">AED Locations</a>
-            <a href="who-we-are.html">Who We Are</a>
+            <a href="who-we-are.html" class="active">Who We Are</a>
             <a href="what-we-do.html">What We Do</a>
             <a href="donate.html">Donate</a>
             <a href="join.html">Join</a>
@@ -27,11 +25,9 @@
         <h2>Who We Are</h2>
         
         <div class="grid-2" style="margin-bottom: 5rem;">
-            <div>
+            <div class="card">
                 <h3>A Community-Led Response</h3>
-                <p>The Dingle Heart Safe Community First Responder (CFR) group is a volunteer organization directly linked to the National Ambulance Service. When emergency calls are made locally, our nearby responders are deployed simultaneously to provide immediate support before advanced crews arrive.</p>
-                <p>Composed completely of passionate local citizens, we dedicate our time to monitoring equipment, practicing emergency skills, and safeguarding lives throughout our peninsula.</p>
-                <a href="aed.html" class="btn" style="margin-top: 1rem;">View Our AED Map</a>
+                <p>The Dingle Heart Safe Community First Responder (CFR) group is a volunteer organization directly linked to the National Ambulance Service. We are local people—your neighbors, friends, and coworkers—trained to provide critical, life-saving intervention in those vital minutes before an ambulance arrives.</p>
             </div>
             <div>
                 <img src="Image 9.jpeg" alt="Dingle Heart Safe Team Group">
@@ -39,13 +35,13 @@
         </div>
 
         <div class="grid-2">
+            <div>
+                <img src="Image 4.jpeg" alt="Volunteers engaging in rigorous CPR and AED training">
+            </div>
             <div class="card">
                 <h3>Always Ready</h3>
                 <p>Being a first responder isn't just about answering the call; it is about continuous preparation. Our team undergoes rigorous and regular training under the governance of the National Ambulance Service.</p>
                 <p>We train not only our own responders but the wider public, ensuring the Dingle Peninsula is a safer place for everyone who lives, works, and visits here.</p>
-            </div>
-            <div>
-                <img src="Image 4.jpeg" alt="Volunteers engaging in rigorous CPR and AED training">
             </div>
         </div>
     </main>
@@ -57,14 +53,8 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const navMenu = document.getElementById('nav-menu');
-            if (hamburgerBtn && navMenu) {
-                hamburgerBtn.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                });
-            }
+        document.getElementById('hamburger-btn').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('active');
         });
     </script>
 </body>

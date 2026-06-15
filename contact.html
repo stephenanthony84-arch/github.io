@@ -6,21 +6,18 @@
     <title>Contact Us - Dingle Heart Safe</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Custom style for the subtle background card */
         .contact-bg-card {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('Image 8.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border: 1px solid rgba(0,0,0,0.1);
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)), url('Image 8.jpeg') center/cover;
+            padding: 4rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="nav-logo">
-            <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
-        </div>
+        <div class="nav-logo"><a href="index.html"><img src="CFR Logo.png" alt="Logo"></a></div>
         <button class="hamburger" id="hamburger-btn">☰</button>
         <div class="nav-links" id="nav-menu">
             <a href="index.html">Home</a>
@@ -29,23 +26,22 @@
             <a href="what-we-do.html">What We Do</a>
             <a href="donate.html">Donate</a>
             <a href="join.html">Join</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="active">Contact</a>
         </div>
     </nav>
 
-    <main class="container text-center">
+    <main class="container">
         <h2>Contact Us</h2>
-        
-        <div class="card contact-bg-card" style="max-width: 650px; margin: 0 auto; padding: 3rem 2rem;">
-            <h3>Get in Touch</h3>
-            <p>Whether you have a question about our operations, want to arrange community training, or simply wish to say hello, we are here to listen.</p>
+        <div class="contact-bg-card">
+            <h3 style="font-size: 2rem;">Get In Touch</h3>
+            <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Whether you have a question about AED locations, want to arrange community training, or simply wish to say hello, we are here to listen.</p>
             
-            <div style="margin: 2.5rem 0; padding: 1.5rem; background: rgba(255, 255, 255, 0.7); border-radius: 12px; border: 1px solid rgba(0,0,0,0.05);">
-                <p style="font-size: 1.1rem; font-weight: bold; margin-top: 0; margin-bottom: 0.5rem; color: var(--dark);">Email us directly at:</p>
-                <a href="mailto:cfrdingle@gmail.com" style="font-size: 1.6rem; color: var(--primary); display: inline-block; word-break: break-all;">cfrdingle@gmail.com</a>
+            <div class="card" style="margin: 3rem auto; max-width: 500px; background: rgba(255,255,255,0.8);">
+                <p style="font-size: 1.1rem; font-weight: bold; margin-bottom: 0.5rem;">Email us directly at:</p>
+                <a href="mailto:cfrdingle@gmail.com" style="font-size: 1.8rem; font-weight: bold; color: var(--primary); display: inline-block; word-break: break-all;">cfrdingle@gmail.com</a>
             </div>
             
-            <p style="margin-bottom: 0;"><small>We aim to respond to all inquiries as quickly as possible. Please note we are a volunteer-run organization.</small></p>
+            <p style="margin-bottom: 0; color: #555;"><small>We aim to respond to all inquiries as quickly as possible. Please note we are a volunteer-run organization.</small></p>
         </div>
     </main>
 
@@ -56,14 +52,8 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const navMenu = document.getElementById('nav-menu');
-            if (hamburgerBtn && navMenu) {
-                hamburgerBtn.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                });
-            }
+        document.getElementById('hamburger-btn').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('active');
         });
     </script>
 </body>

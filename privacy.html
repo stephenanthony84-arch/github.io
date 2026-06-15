@@ -8,9 +8,7 @@
 </head>
 <body>
     <nav>
-        <div class="nav-logo">
-            <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
-        </div>
+        <div class="nav-logo"><a href="index.html"><img src="CFR Logo.png" alt="Logo"></a></div>
         <button class="hamburger" id="hamburger-btn">☰</button>
         <div class="nav-links" id="nav-menu">
             <a href="index.html">Home</a>
@@ -28,18 +26,43 @@
         <div class="card" style="max-width: 850px; margin: 0 auto;">
             <h3>Dingle Heart Safe – Privacy Policy</h3>
             <p><strong>Last updated:</strong> January 2026</p>
-            <p>Dingle Heart Safe operates as a local Community First Responder group. We value your data security and adhere strictly to standard data handling methods to safeguard your confidentiality.</p>
+            <p>Dingle Heart Safe operates as a volunteer-led Community First Responder (CFR) group on the Dingle Peninsula. We are committed to protecting your personal data and respecting your privacy in accordance with the General Data Protection Regulation (GDPR) and the Data Protection Acts.</p>
             
-            <h4>1. Data Collection</h4>
-            <p>We process basic information supplied by you during explicit communication, team alignment applications, or structured donation links.</p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
 
-            <h4>7. Security of Your Data</h4>
-            <p>We take appropriate technical and organisational measures to protect your data, including: Secure website (HTTPS), restricted access to inboxes and volunteer systems, encrypted storage where appropriate, and regular review of data handling practices. Only authorised committee members or designated officers have access to personal data.</p>
+            <h4>1. Information We Collect</h4>
+            <p>We may collect and process the following data:</p>
+            <ul>
+                <li><strong>Contact Information:</strong> Name, email address, phone number (when you contact us or apply to volunteer).</li>
+                <li><strong>Volunteer Data:</strong> Vetting information, training records, and certification status (processed securely as per NAS guidelines).</li>
+                <li><strong>Website Usage Data:</strong> Anonymized analytical data such as IP address, browser type, and pages visited (via cookies).</li>
+            </ul>
 
-            <h4>8. Your GDPR Rights</h4>
-            <p>You have the right to: Access your personal data, Correct inaccurate information, Request deletion (“right to be forgotten”), Object to processing, Withdraw consent (where consent is used), Request a copy of your data in a portable format.</p>
+            <h4>2. How We Use Your Information</h4>
+            <p>We use your data strictly for legitimate operational purposes:</p>
+            <ul>
+                <li>To respond to your inquiries.</li>
+                <li>To manage and coordinate our volunteer network.</li>
+                <li>To process membership/volunteer applications.</li>
+                <li>To maintain the functionality and security of our website.</li>
+            </ul>
+
+            <h4>3. Third-Party Services & Links</h4>
+            <p><strong>Donations:</strong> We use iDonate for secure online fundraising. We do not collect or store any of your credit card or financial information. Please refer to iDonate’s Privacy Policy for how they handle your financial data.</p>
+            <p><strong>External Links:</strong> Our site contains links to external sites (e.g., Google Maps for AED locations). We are not responsible for the privacy practices of these external platforms.</p>
+
+            <h4>4. Data Retention</h4>
+            <p>We only keep your personal data for as long as is necessary for the purposes set out in this policy, or as required by law (e.g., NAS training compliance).</p>
+
+            <h4>5. Data Security</h4>
+            <p>We implement appropriate technical and organizational measures to protect your data, including secure inboxes and restricted access.</p>
+
+            <h4>6. Your GDPR Rights</h4>
+            <p>You have the right to access your personal data, correct inaccurate information, request deletion, object to processing, or withdraw consent.</p>
             
-            <p style="margin-bottom: 0;">To exercise any of these rights, contact: <a href="mailto:cfrdingle@gmail.com" style="text-decoration: underline;">cfrdingle@gmail.com</a></p>
+            <div class="highlight-box" style="margin-top: 2rem;">
+                <p style="margin-bottom: 0; font-weight: 500;">To exercise any of these rights, contact: <a href="mailto:cfrdingle@gmail.com" style="text-decoration: underline; color: var(--primary);">cfrdingle@gmail.com</a></p>
+            </div>
         </div>
     </main>
 
@@ -50,14 +73,8 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const navMenu = document.getElementById('nav-menu');
-            if (hamburgerBtn && navMenu) {
-                hamburgerBtn.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                });
-            }
+        document.getElementById('hamburger-btn').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('active');
         });
     </script>
 </body>

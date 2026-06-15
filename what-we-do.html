@@ -8,15 +8,13 @@
 </head>
 <body>
     <nav>
-        <div class="nav-logo">
-            <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
-        </div>
+        <div class="nav-logo"><a href="index.html"><img src="CFR Logo.png" alt="Logo"></a></div>
         <button class="hamburger" id="hamburger-btn">☰</button>
         <div class="nav-links" id="nav-menu">
             <a href="index.html">Home</a>
             <a href="aed.html">AED Locations</a>
             <a href="who-we-are.html">Who We Are</a>
-            <a href="what-we-do.html">What We Do</a>
+            <a href="what-we-do.html" class="active">What We Do</a>
             <a href="donate.html">Donate</a>
             <a href="join.html">Join</a>
             <a href="contact.html">Contact</a>
@@ -29,17 +27,11 @@
         <div class="grid-2" style="margin-bottom: 4rem;">
             <div class="card">
                 <h3>Core Operations</h3>
-                <p>The team is dispatched simultaneously with the NAS via 999/112 calls, but specifically for four types of life-threatening emergencies:</p>
-                <ul class="custom-list">
-                    <li>Cardiac Arrest</li>
-                    <li>Chest Pain / Suspected Heart Attacks</li>
-                    <li>Choking Emergencies</li>
-                    <li>Stroke Symptoms</li>
-                </ul>
-                <a href="aed.html" class="btn">View AED Locations</a>
+                <p>The team is dispatched simultaneously with the NAS via 999/112 calls, but specifically for four highly time-critical emergencies: Cardiac Arrest, Choking, Stroke, and Heart Attack.</p>
+                <p>Because our volunteers live and work within the Dingle community, we can often arrive on the scene within minutes, bridging the critical gap before professional medical help arrives.</p>
             </div>
             <div>
-                <img src="Image 10.jpg" alt="Emergency responder training">
+                <img src="Image 3.jpeg" alt="CFR responding to an emergency call">
             </div>
         </div>
 
@@ -62,14 +54,8 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const navMenu = document.getElementById('nav-menu');
-            if (hamburgerBtn && navMenu) {
-                hamburgerBtn.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                });
-            }
+        document.getElementById('hamburger-btn').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('active');
         });
     </script>
 </body>
