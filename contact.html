@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Dingle Heart Safe</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom style for the subtle background card */
+        .contact-bg-card {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('Image 8.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -24,17 +34,18 @@
     </nav>
 
     <main class="container text-center">
-        <h2>Contact</h2>
-        <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <h2>Contact Us</h2>
+        
+        <div class="card contact-bg-card" style="max-width: 650px; margin: 0 auto; padding: 3rem 2rem;">
             <h3>Get in Touch</h3>
             <p>Whether you have a question about our operations, want to arrange community training, or simply wish to say hello, we are here to listen.</p>
             
-            <div style="margin: 3rem 0;">
-                <p style="font-size: 1.2rem; font-weight: bold;">Email us directly at:</p>
-                <a href="mailto:info@dingleheartsafe.com" style="font-size: 1.5rem; background: var(--blush); padding: 1rem; border-radius: 5px; display: inline-block;">info@dingleheartsafe.com</a>
+            <div style="margin: 2.5rem 0; padding: 1.5rem; background: rgba(255, 255, 255, 0.7); border-radius: 12px; border: 1px solid rgba(0,0,0,0.05);">
+                <p style="font-size: 1.1rem; font-weight: bold; margin-top: 0; margin-bottom: 0.5rem; color: var(--dark);">Email us directly at:</p>
+                <a href="mailto:cfrdingle@gmail.com" style="font-size: 1.6rem; color: var(--primary); display: inline-block; word-break: break-all;">cfrdingle@gmail.com</a>
             </div>
             
-            <p><small>We aim to respond to all inquiries as quickly as possible. Please note we are a volunteer-run organization.</small></p>
+            <p style="margin-bottom: 0;"><small>We aim to respond to all inquiries as quickly as possible. Please note we are a volunteer-run organization.</small></p>
         </div>
     </main>
 
@@ -44,7 +55,6 @@
         <p><a href="privacy.html">Privacy Policy</a></p>
     </footer>
 
-    <!-- Safe Menu Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const hamburgerBtn = document.getElementById('hamburger-btn');
