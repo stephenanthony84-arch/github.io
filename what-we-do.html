@@ -8,13 +8,17 @@
 </head>
 <body>
     <nav>
-        <div class="nav-logo"><a href="index.html"><img src="CFR Logo.png" alt="Logo"></a></div>
+        <div class="nav-logo">
+            <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
+        </div>
         <button class="hamburger" id="hamburger-btn">☰</button>
         <div class="nav-links" id="nav-menu">
             <a href="index.html">Home</a>
             <a href="aed.html">AED Locations</a>
             <a href="who-we-are.html">Who We Are</a>
             <a href="what-we-do.html" class="active">What We Do</a>
+            <a href="news.html">News</a>
+            <a href="resources.html">Resources</a>
             <a href="donate.html">Donate</a>
             <a href="join.html">Join</a>
             <a href="contact.html">Contact</a>
@@ -22,28 +26,34 @@
     </nav>
 
     <main class="container">
-        <h2>What We Do</h2>
-        
-        <div class="grid-2" style="margin-bottom: 4rem;">
-            <div class="card">
-                <h3>Core Operations</h3>
-                <p>The team is dispatched simultaneously with the NAS via 999/112 calls, but specifically for four highly time-critical emergencies: Cardiac Arrest, Choking, Stroke, and Heart Attack.</p>
-                <p>Because our volunteers live and work within the Dingle community, we can often arrive on the scene within minutes, bridging the critical gap before professional medical help arrives.</p>
-            </div>
+        <div class="grid-2" style="align-items: center; margin-bottom: 3rem;">
             <div>
-                <img src="Image 3.jpeg" alt="CFR responding to an emergency call">
+                <h2 style="color: var(--primary);">What We Do</h2>
+                <p style="font-size: 1.1rem; line-height: 1.7;">
+                    Dingle Heart Safe operates as a highly trained Community First Responder (CFR) scheme directly linked to the National Ambulance Service. We provide localized emergency support where geographical distance might delay professional medical help.
+                </p>
+            </div>
+            <div class="card" style="background: var(--primary); color: white; padding: 2rem; text-align: center;">
+                <h3 style="color: white; margin-top: 0;">When We Are Called</h3>
+                <p>When a 999 or 112 call is made on the Dingle Peninsula for specific life-threatening emergencies, the ambulance control centre automatically dispatches our on-call volunteers simultaneously with the ambulance.</p>
             </div>
         </div>
 
-        <div class="grid-2">
-            <div>
-                <img src="Image 2.jpeg" alt="Volunteers inspecting and maintaining defibrillator units">
-            </div>
-            <div class="card">
-                <h3>Defibrillator Maintenance</h3>
-                <p>The group plays a vital role in ensuring that public access AEDs across the Dingle Peninsula remain rescue-ready at all times. Volunteers regularly inspect and maintain defibrillators, replacing pads and other essential equipment as required.</p>
-                <p>By carrying out routine checks and coordinating repairs when needed, we help ensure that life-saving equipment is available and fully operational for anyone experiencing a cardiac emergency in our community.</p>
-            </div>
+        <div class="card" style="margin-bottom: 3rem;">
+            <h3>The Emergencies We Respond To</h3>
+            <ul style="line-height: 2; font-size: 1.1rem; margin-bottom: 0;">
+                <li><strong>Cardiac Arrest:</strong> Providing immediate CPR and deploying an AED to restart the heart.</li>
+                <li><strong>Chest Pain:</strong> Monitoring the patient, providing reassurance, and preparing for sudden deterioration.</li>
+                <li><strong>Choking:</strong> Performing maneuvers to clear airway obstructions.</li>
+                <li><strong>Stroke:</strong> Identifying symptoms early to ensure rapid hospital transport.</li>
+            </ul>
+        </div>
+
+        <div style="padding: 2rem; background: #f4f4f4; border-radius: 12px;">
+            <h3 style="text-align: center; margin-top: 0;">The Chain of Survival</h3>
+            <p style="font-size: 1.1rem; line-height: 1.7; text-align: center; max-width: 800px; margin: 0 auto;">
+                Because our volunteers live within the community, we can frequently arrive on the scene within minutes—often before the ambulance can navigate rural roads. We do not replace paramedics; our essential role is to sustain life and prevent deterioration during those critical early moments, securing the initial links in the "chain of survival."
+            </p>
         </div>
     </main>
 
@@ -54,8 +64,10 @@
     </footer>
 
     <script>
-        document.getElementById('hamburger-btn').addEventListener('click', function() {
-            document.getElementById('nav-menu').classList.toggle('active');
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('hamburger-btn').addEventListener('click', function() {
+                document.getElementById('nav-menu').classList.toggle('active');
+            });
         });
     </script>
 </body>
