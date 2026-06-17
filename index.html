@@ -37,6 +37,16 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-400px); } /* Translates exactly one SVG cycle unit */
         }
+        
+        /* Ensure buttons wrap visually cleanly on all screen sizes */
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -50,6 +60,8 @@
             <a href="aed.html">AED Locations</a>
             <a href="who-we-are.html">Who We Are</a>
             <a href="what-we-do.html">What We Do</a>
+            <a href="news.html">News</a>
+            <a href="resources.html">Resources</a>
             <a href="donate.html">Donate</a>
             <a href="join.html">Join</a>
             <a href="contact.html">Contact</a>
@@ -74,6 +86,8 @@
             <a href="aed.html" class="btn">AED Locations</a>
             <a href="what-we-do.html" class="btn">What We Do</a>
             <a href="who-we-are.html" class="btn">Who We Are</a>
+            <a href="news.html" class="btn">News</a>
+            <a href="resources.html" class="btn">Resources</a>
             <a href="donate.html" class="btn">Donate Now</a>
             <a href="join.html" class="btn">Join the Team</a>
         </div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Dingle Heart Safe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
+        </div>
+        <button class="hamburger" id="hamburger-btn">☰</button>
+        <div class="nav-links" id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="aed.html">AED Locations</a>
+            <a href="who-we-are.html">Who We Are</a>
+            <a href="what-we-do.html">What We Do</a>
+            <a href="news.html" class="active">News</a>
+            <a href="resources.html">Resources</a>
+            <a href="donate.html">Donate</a>
+            <a href="join.html">Join</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h2>Latest News</h2>
+        <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center; padding: 4rem 2rem;">
+            <h3 style="color: var(--primary);">Stay Tuned!</h3>
+            <p style="font-size: 1.1rem;">Our news feed is currently being prepared. Check back soon for the latest updates and announcements from Dingle Heart Safe.</p>
+        </div>
+    </main>
+
+    <footer>
+        <img src="CFR Logo.png" alt="Logo">
+        <p>&copy; 2026 Dingle Heart Safe. All Rights Reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('hamburger-btn').addEventListener('click', function() {
+                document.getElementById('nav-menu').classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
