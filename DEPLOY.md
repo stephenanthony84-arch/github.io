@@ -23,7 +23,10 @@ repository that serves dingleheartsafe.com, and GitHub Pages publishes it.
 
 1. Edit the pins in Google My Maps as usual.
 2. In this folder run: `node tools/update-aed-data.mjs`
-3. Open `aed-data.js` and fill in `area` and `group` for any new pin, then upload the file.
+3. Open `aed-data.js` and fill in `area` and `group` for any new pin. For an AED that Dingle Heart Safe
+   does not look after, add `"managed":false` to its row: the list then shows "(Not a Dingle Heart Safe
+   Managed AED)" under it. The AED counts on the pages update themselves.
+4. Add a dot for the new pin to the area map in `index.html` (`pen-map__aeds`), then upload the changed files.
 
 ## Things that need HTTPS
 
@@ -52,9 +55,9 @@ give it the same file name, and replace the poster JPG with a frame from it.
 
 ## After changing styles.css or a script
 
-Every page loads `styles.css?v=20261008e` and `site.js?v=20261008e` (and the other scripts the same way).
+Every page loads `styles.css?v=20261008g` and `site.js?v=20261008g` (and the other scripts the same way).
 Phones keep old copies of these files for a while, so when you change `styles.css` or any `.js` file,
 change the `?v=` number in all ten pages to today's date (for example `?v=20261124`) before uploading.
 To do this in one go, use "Replace in Files" in your editor (in VS Code: Edit, then Replace in Files)
-to change the number the pages use now (at the moment `?v=20261008e`) to the new one in all the `.html`
+to change the number the pages use now (at the moment `?v=20261008g`) to the new one in all the `.html`
 files. Any new number works, as long as it is different from the old one.

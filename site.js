@@ -325,6 +325,8 @@
       }
       d += ' L' + w + ',' + y;
       pulseSvg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+      /* wider bars get a slower sweep, so a beat lights up about every 0.8 s (75 a minute) */
+      pulseSvg.style.setProperty('--sweep', Math.min(10, Math.max(4.2, 1.4 * w / gap)).toFixed(2) + 's');
       for (var pp = 0; pp < pulsePaths.length; pp++) { pulsePaths[pp].setAttribute('d', d); }
     };
     drawTrace();

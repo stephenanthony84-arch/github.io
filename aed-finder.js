@@ -21,6 +21,10 @@
   'use strict';
 
   var AEDS = window.DHS_AEDS || [];
+  /* AEDs on the map that Dingle Heart Safe does not look after ("managed": false in aed-data.js) */
+  function unmanagedHtml(aed, tag) {
+    return aed.managed === false ? '<' + tag + ' class="aed-unmanaged">(Not a Dingle Heart Safe Managed AED)</' + tag + '>' : '';
+  }
   var MAP_URL = window.DHS_AED_MAP_URL ||
     'https://www.google.com/maps/d/viewer?mid=1nF0UF266j_APUEpj72y7i12Iqt6UEq0';
   var WALK_LIMIT_M = 1500;      // walk if the nearest AED is within this, otherwise drive
@@ -126,6 +130,7 @@
         '<h2 class="aed-result__name">' + esc(aed.name) + '</h2>' +
         '<p class="aed-result__area">' + esc(aed.area) + '</p>' +
         (aed.note ? '<p class="aed-result__note">' + esc(aed.note) + '</p>' : '') +
+        unmanagedHtml(aed, 'p') +
         (coarse
           ? '<p class="aed-result__warn">Your phone only gave an approximate location (to about ' + esc(formatDistance(accuracy)) + '), so check the list below or <a href="' + esc(MAP_URL) + '" target="_blank" rel="noopener">open the AED map</a>.</p>'
           : '') +
@@ -143,7 +148,7 @@
       return '<li class="aed-list__item">' +
         '<div class="aed-list__text">' +
           '<span class="aed-list__name">' + esc(aed.name) + '</span>' +
-          '<span class="aed-list__area">' + esc(aed.area) + (aed.note ? ' · ' + esc(aed.note) : '') + '</span>' +
+          '<span class="aed-list__area">' + esc(aed.area) + (aed.note ? ' · ' + esc(aed.note) : '') + unmanagedHtml(aed, 'span') + '</span>' +
         '</div>' +
         '<span class="aed-list__dist">' + esc(formatDistance(hit.m)) + '</span>' +
         '<a class="aed-list__link" href="' + esc(directionsUrl(aed, travelMode(hit.m))) + '" target="_blank" rel="noopener">Directions<span class="visually-hidden"> to ' + esc(aed.name) + '</span></a>' +
@@ -283,7 +288,7 @@
         return '<li class="aed-directory__item">' +
           '<div>' +
             '<span class="aed-directory__name">' + esc(aed.name) + '</span>' +
-            '<span class="aed-directory__note">' + esc(aed.area) + (aed.note ? ' · ' + esc(aed.note) : '') + '</span>' +
+            '<span class="aed-directory__note">' + esc(aed.area) + (aed.note ? ' · ' + esc(aed.note) : '') + unmanagedHtml(aed, 'span') + '</span>' +
           '</div>' +
           '<a href="' + esc(url) + '" target="_blank" rel="noopener">Directions<span class="visually-hidden"> to ' + esc(aed.name) + '</span></a>' +
         '</li>';
@@ -298,6 +303,9 @@
   function start() {
     var roots = document.querySelectorAll('[data-aed-finder]');
     for (var i = 0; i < roots.length; i++) { init(roots[i]); }
+    /* AED totals in the page copy follow the data, so a new pin updates every count */
+    var counts = document.querySelectorAll('[data-aed-count]');
+    for (var ci = 0; ci < counts.length; ci++) { if (AEDS.length) { counts[ci].textContent = String(AEDS.length); } }
     var directory = document.querySelector('[data-aed-directory]');
     if (directory && AEDS.length) { directory.innerHTML = directoryHtml(); }
     var updated = document.querySelector('[data-aed-updated]');

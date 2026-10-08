@@ -31,7 +31,8 @@ async function readExisting() {
     const src = await readFile(target, 'utf8');
     const m = src.match(/window\.DHS_AEDS\s*=\s*(\[[\s\S]*?\]);/);
     if (!m) return new Map();
-    const rows = JSON.parse(m[1]);
+    // the file this tool writes ends each row with a comma, which JSON.parse rejects before the ]
+    const rows = JSON.parse(m[1].replace(/,\s*\]$/, ']'));
     return new Map(rows.map((r) => [key(r.lat, r.lng), r]));
   } catch {
     return new Map();
@@ -67,7 +68,7 @@ const today = new Date().toISOString().slice(0, 10);
 const out = [
   '// Dingle Heart Safe: public-access AED list used by aed-finder.js.',
   `// Source: the Dingle AED map in Google My Maps (mid=${MAP_ID}).`,
-  `// Exported ${today} with tools/update-aed-data.mjs. \`mapDesc\` is the raw label on the map; \`name\`/\`area\` are tidied for display.`,
+  `// Exported ${today} with tools/update-aed-data.mjs. \`mapDesc\` is the raw label on the map; \`name\`/\`area\` are tidied for display; \`"managed": false\` adds the "Not a Dingle Heart Safe Managed AED" label.`,
   'window.DHS_AEDS = [',
   ...rows.map((r) => '  ' + JSON.stringify(r) + ','),
   '];',

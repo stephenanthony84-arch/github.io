@@ -1678,13 +1678,18 @@ main:has(> .section--ink:last-child) + .site-footer { box-shadow: none; border-t
   stroke-linejoin: round;
 }
 .pulse-trace__base { stroke-width: 1.2; opacity: .05; }
-.pulse-trace__tail { stroke-width: 1.6; opacity: .13; stroke-dasharray: .3 3; stroke-dashoffset: .3; animation: monitorTail 4.2s linear infinite; }
-.pulse-trace__glow { stroke-width: 2; opacity: .26; stroke-dasharray: .1 3; stroke-dashoffset: .1; animation: monitorGlow 4.2s linear infinite; }
-.pulse-trace__head { stroke-width: 2.6; opacity: .55; stroke-dasharray: .02 3; stroke-dashoffset: .02; animation: monitorHead 4.2s linear infinite; }
+.pulse-trace__tail { stroke-width: 1.6; opacity: .13; stroke-dasharray: .3 3; stroke-dashoffset: .3; animation: monitorTail var(--sweep, 4.2s) linear infinite; }
+.pulse-trace__glow { stroke-width: 2; opacity: .26; stroke-dasharray: .1 3; stroke-dashoffset: .1; animation: monitorGlow var(--sweep, 4.2s) linear infinite; }
+.pulse-trace__head { stroke-width: 2.6; opacity: .55; stroke-dasharray: .02 3; stroke-dashoffset: .02; animation: monitorHead var(--sweep, 4.2s) linear infinite; }
 /* the beam crosses in the first 75% of each cycle, then the screen rests before the next sweep */
 @keyframes monitorTail { 0% { stroke-dashoffset: .3; } 75%, 100% { stroke-dashoffset: -1.02; } }
 @keyframes monitorGlow { 0% { stroke-dashoffset: .1; } 75%, 100% { stroke-dashoffset: -1.22; } }
 @keyframes monitorHead { 0% { stroke-dashoffset: .02; } 75%, 100% { stroke-dashoffset: -1.3; } }
+/* the words in the bar get a halo in the bar's own colour, so the trace passes behind them */
+.nav__title { text-shadow: 0 0 2px var(--paper), 0 0 4px var(--paper), 0 0 7px var(--paper); }
+@media (min-width: 1200px) {
+  .nav__links a:not(.btn) { text-shadow: 0 0 2px var(--paper), 0 0 4px var(--paper), 0 0 7px var(--paper); }
+}
 
 /* Top bar title: slides in as the page title scrolls under the bar (site.js sets --brand-p) */
 .nav__title { display: none; }
@@ -1860,3 +1865,10 @@ main:has(> .section--ink:last-child) + .site-footer { box-shadow: none; border-t
 
 /* Top-bar title: no room for it on the very narrowest screens */
 @media (max-width: 279px) { .nav__title { display: none; } }
+
+/* AEDs that Dingle Heart Safe does not manage: a small red italic line under the description */
+.aed-unmanaged { display: block; margin-top: .15rem; font-size: .88em; font-style: italic; color: var(--red-deep); }
+p.aed-unmanaged { font-size: .8rem; margin: -.6rem 0 1rem; }
+@media (prefers-color-scheme: dark) {
+  .aed-unmanaged { color: var(--dk-red); }
+}

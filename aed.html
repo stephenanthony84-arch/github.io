@@ -5,7 +5,7 @@
   <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.dhsReady){document.documentElement.classList.add('reveal-fallback')}},3000)</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>AED Locations · Dingle Heart Safe</title>
-  <meta name="description" content="Find the nearest public-access defibrillator (AED) in and around Dingle. 25 AEDs mapped from Dún Chaoin to Lispole, with directions in Google Maps.">
+  <meta name="description" content="Find the nearest public-access defibrillator (AED) in and around Dingle. 27 AEDs mapped from Dún Chaoin to Lispole, with directions in Google Maps.">
   <meta name="theme-color" content="#E31837" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#170C10" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:url" content="https://dingleheartsafe.com/aed.html">
   <link rel="preload" href="fonts/atkinson-hyperlegible-next-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261008e">
+  <link rel="stylesheet" href="styles.css?v=20261008g">
 </head>
 <body class="has-action-bar">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -59,13 +59,13 @@
         <div class="aed-head__intro">
           <p class="eyebrow">AED locations</p>
           <h1 id="aed-title">Find an AED <span class="aed-head__expansion">(Automated External Defibrillator)</span></h1>
-          <p class="lede">25 public-access AEDs from Dún Chaoin to Lispole. <span class="for-touch">Let your phone find the closest one, or tap a pin on the map below.</span><span class="for-desktop">Click a pin on the map below, or see every location in the list.</span></p>
+          <p class="lede"><span data-aed-count>27</span> public-access AEDs from Dún Chaoin to Lispole. <span class="for-touch">Let your phone find the closest one, or tap a pin on the map below.</span><span class="for-desktop">Click a pin on the map below, or see every location in the list.</span></p>
         </div>
         <div class="finder" id="find-aed" data-aed-finder>
             <div class="btn-row">
               <a class="btn btn--aed btn--lg for-desktop" href="#all-aeds">
                 <svg class="btn__icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 6h2v2H4zm4 0h12v2H8zM4 11h2v2H4zm4 0h12v2H8zM4 16h2v2H4zm4 0h12v2H8z"/></svg>
-                See all 25 locations
+                See all <span data-aed-count>27</span> locations
               </a>
               <button class="btn btn--aed btn--lg for-touch" type="button" data-aed-button>
                 <svg class="btn__icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
@@ -130,7 +130,7 @@
       <div class="container">
         <div class="section__head" data-reveal>
           <p class="eyebrow">Every location</p>
-          <h2 id="directory-title">All 25 AEDs by area</h2>
+          <h2 id="directory-title">All <span data-aed-count>27</span> AEDs by area</h2>
           <p class="lede">Each one links straight to directions in Google Maps. Locations last updated <span data-aed-updated>2026</span>.</p>
         </div>
         <div class="aed-directory" data-aed-directory>
@@ -158,7 +158,7 @@
           <p>Some cabinets are locked: the 112 dispatcher gives you the code. Once you open the AED, it talks you through every step.</p>
           <div class="btn-row mt-2">
             <a class="btn btn--aed for-touch" href="#find-aed">Find my nearest AED</a>
-            <a class="btn btn--aed for-desktop" href="#all-aeds">See all 25 locations</a>
+            <a class="btn btn--aed for-desktop" href="#all-aeds">See all <span data-aed-count>27</span> locations</a>
             <a class="btn btn--outline" href="resources.html">Watch how to use an AED</a>
           </div>
         </div>
@@ -211,8 +211,8 @@
     </div>
   </nav>
 
-  <script src="aed-data.js?v=20261008e"></script>
-  <script src="aed-finder.js?v=20261008e" defer></script>
-  <script src="site.js?v=20261008e" defer></script>
+  <script src="aed-data.js?v=20261008g"></script>
+  <script src="aed-finder.js?v=20261008g" defer></script>
+  <script src="site.js?v=20261008g" defer></script>
 </body>
 </html>
