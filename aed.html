@@ -1,74 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AED Locations - Dingle Heart Safe</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AED Locations · Dingle Heart Safe</title>
+  <meta name="description" content="Find the nearest public-access defibrillator (AED) in and around Dingle. 25 AEDs mapped from Dunquin to Lispole, with directions in Google Maps.">
+  <meta name="theme-color" content="#E31837">
+  <link rel="canonical" href="https://dingleheartsafe.com/aed.html">
+  <link rel="icon" href="img/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dingle Heart Safe">
+  <meta property="og:title" content="AED Locations · Dingle Heart Safe">
+  <meta property="og:description" content="Find the nearest public-access defibrillator in and around Dingle and get directions in Google Maps.">
+  <meta property="og:image" content="https://dingleheartsafe.com/img/og-aed.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A yellow public-access AED cabinet on a pub wall">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="https://dingleheartsafe.com/aed.html">
+  <link rel="preload" href="fonts/atkinson-hyperlegible-next-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <nav>
-        <div class="nav-logo">
-            <a href="index.html"><img src="CFR Logo.png" alt="Dingle Heart safe Logo"></a>
-        </div>
-        <button class="hamburger" id="hamburger-btn">☰</button>
-        <div class="nav-links" id="nav-menu">
-            <a href="index.html">Home</a>
-            <a href="aed.html" class="active">AED Locations</a>
-            <a href="who-we-are.html">Who We Are</a>
-            <a href="what-we-do.html">What We Do</a>
-            <a href="news.html">News</a>
-            <a href="resources.html">Resources</a>
-            <a href="donate.html">Donate</a>
-            <a href="join.html">Join</a>
-            <a href="contact.html">Contact</a>
-        </div>
+<body class="has-action-bar">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="nav__logo" href="index.html"><img src="img/logo-170.png" alt="Dingle Heart Safe" width="170" height="161"></a>
+      <button class="nav__toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu"><span class="nav__bars"></span><span class="visually-hidden">Menu</span></button>
+      <ul class="nav__links" id="site-menu" data-menu>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aed.html" aria-current="page">AED Locations</a></li>
+        <li><a href="who-we-are.html">Who We Are</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav__social"><a href="https://www.instagram.com/dingleheartsafe/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg><span class="nav__social-label">Instagram</span><span class="visually-hidden"> @dingleheartsafe</span></a></li>
+        <li class="nav__cta"><a class="btn btn--sm" href="donate.html">Donate</a></li>
+        <li class="nav__cta"><a class="btn btn--aed btn--sm" href="#find-aed">Nearest AED</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <main class="container">
-        <h2>Defibrillator (AED) Locations</h2>
-        
-        <div class="card" style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">
-            <h3>In an emergency, always dial 112 or 999 first.</h3>
-            <p>The ambulance dispatcher will tell you where your nearest accessible AED is located and provide the access code if the cabinet is locked.</p>
+  <main id="main">
+
+    <!-- Map and nearest-AED finder -->
+    <section class="page-head page-head--ink aed-head" aria-labelledby="aed-title">
+      <div class="container">
+        <div class="aed-head__intro">
+          <p class="eyebrow">AED locations</p>
+          <h1 id="aed-title">Find a defibrillator in and around Dingle</h1>
+          <p class="lede">25 public-access AEDs from Dunquin to Lispole. Let your phone find the closest one, or tap a pin on the map below.</p>
         </div>
-
-        <div class="aed-wrapper">
-            <h2 style="color: white; text-align: center;">Interactive Location Map</h2>
-            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem; color: white;">Explore the map below to familiarize yourself with public access AEDs on the Dingle Peninsula.</p>
-            
-            <div class="map-large">
-                <!-- Clean standard Google Maps embed targeting the Dingle Peninsula at zoom level 11 -->
-                <iframe src="https://maps.google.com/maps?q=AED%20Dingle%20Peninsula&t=&z=11&ie=UTF8&iwloc=&output=embed" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+        <div class="finder" id="find-aed" data-aed-finder>
+            <div class="btn-row">
+              <button class="btn btn--aed btn--lg" type="button" data-aed-button>
+                <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+                Find my nearest AED
+              </button>
+              <noscript><a class="btn btn--aed btn--lg" href="https://www.google.com/maps/d/viewer?mid=1nF0UF266j_APUEpj72y7i12Iqt6UEq0" target="_blank" rel="noopener">Open the AED map</a></noscript>
+              <a class="btn btn--ghost btn--lg" href="tel:112">
+                <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>
+                Call 112
+              </a>
             </div>
-
-            <div style="background: rgba(26, 10, 14, 0.85); padding: 1.8rem; border-radius: 12px; margin-bottom: 3.5rem; border-left: 5px solid white;">
-                <p style="color: white; font-size: 1.1rem; font-weight: 500; margin: 0;">
-                    Please contact us if you notice damaged or missing AEDs, or if the locations of the AEDs noted on the map are incorrect.
-                </p>
-            </div>
-
-            <div>
-                <img src="Image 1.jpeg" alt="AED Location Detail" style="box-shadow: 0 12px 28px rgba(0,0,0,0.4); border-radius: 12px; width: 100%;">
-            </div>
+            <p class="finder__status" data-aed-status aria-live="polite"></p>
+            <div data-aed-result></div>
+            <div data-aed-list="5"></div>
         </div>
-    </main>
+        <div class="map-embed map-embed--top" id="aed-map">
+          <button class="map-embed__shield" type="button" data-map-shield hidden><span class="btn btn--ink">Tap to use the map</span></button>
+          <iframe src="https://www.google.com/maps/d/embed?mid=1nF0UF266j_APUEpj72y7i12Iqt6UEq0&amp;ehbc=2E312F" title="Dingle AED map, a Google My Maps map of public-access defibrillators" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="btn-row aed-head__links">
+          <a class="btn btn--ghost" href="https://www.google.com/maps/d/viewer?mid=1nF0UF266j_APUEpj72y7i12Iqt6UEq0" target="_blank" rel="noopener">Open the AED map in Google Maps</a>
+          <p class="small aed-head__privacy">Your location is used once, on your phone, to work out distances. It is never sent to us or stored.</p>
+        </div>
+        <div class="map-report">
+          <p class="map-report__text"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg><span><strong>Spotted a damaged or missing defibrillator, or a pin in the wrong place?</strong><br>Please let us know so we can fix it quickly. Email <a class="map-report__email" href="mailto:cfrdingle@gmail.com?subject=AED%20report">cfrdingle@gmail.com</a></span></p>
+          <a class="btn btn--outline" href="mailto:cfrdingle@gmail.com?subject=AED%20report">Report an AED</a>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-        <img src="CFR Logo.png" alt="Logo">
-        <p>&copy; 2026 Dingle Heart Safe. All Rights Reserved.</p>
-        <p><a href="privacy.html">Privacy Policy</a></p>
-    </footer>
+    <!-- Emergency notice -->
+    <section class="section section--tint section--tight" aria-label="In an emergency">
+      <div class="container">
+        <div class="notice">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>
+          <div>
+            <p><strong>In an emergency, always dial 112 or 999 first.</strong></p>
+            <p>The ambulance dispatcher will tell you where your nearest accessible AED is and give you the access code if the cabinet is locked. They will also send our responders.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('hamburger-btn').addEventListener('click', function() {
-                document.getElementById('nav-menu').classList.toggle('active');
-            });
-        });
-    </script>
+
+    <!-- Every AED -->
+    <section class="section" aria-labelledby="directory-title">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="eyebrow">Every location</p>
+          <h2 id="directory-title">All 25 AEDs by area</h2>
+          <p class="lede">Each one links straight to directions in Google Maps. Locations last updated <span data-aed-updated>2026</span>.</p>
+        </div>
+        <div class="aed-directory" data-aed-directory>
+          <noscript><p>Turn on JavaScript to see the list, or <a href="https://www.google.com/maps/d/viewer?mid=1nF0UF266j_APUEpj72y7i12Iqt6UEq0" target="_blank" rel="noopener">open the AED map in Google Maps</a>.</p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- What to look for -->
+    <section class="section section--tint" aria-labelledby="look-title">
+      <div class="container split">
+        <div class="photo-pair" data-reveal>
+          <figure class="media media--ratio-3-4">
+            <img src="img/photo-aed-cabinet-800.jpg" srcset="img/photo-aed-cabinet-800.jpg 800w, img/photo-aed-cabinet-1600.jpg 1500w" sizes="(min-width: 820px) 38vw, 78vw" width="1500" height="2000" alt="An illuminated green public access defibrillator cabinet with a sign reading Call 112 and Turn left to open" loading="lazy">
+            <figcaption>Some cabinets light up at night</figcaption>
+          </figure>
+          <figure class="media media--ratio-3-4">
+            <img src="img/image-8-800.jpg" srcset="img/image-8-800.jpg 800w, img/image-8-1600.jpg 1500w" sizes="(min-width: 820px) 22vw, 46vw" width="1500" height="2000" alt="A yellow public access AED cabinet mounted on a shop front in Dingle" loading="lazy">
+          </figure>
+        </div>
+        <div data-reveal="2">
+          <p class="eyebrow">What to look for</p>
+          <h2 id="look-title">Look for the green AED sign</h2>
+          <p class="lede">Most of our AEDs are kept in yellow or green cabinets on the outside walls of pubs, shops, halls and schools, marked with the green heart and lightning sign. A few are indoors or on fences: check the note beside each one in the list above.</p>
+          <p>Some cabinets are locked: the 112 dispatcher gives you the code. Once you open the AED, it talks you through every step.</p>
+          <div class="btn-row mt-2">
+            <a class="btn btn--aed" href="#find-aed">Find my nearest AED</a>
+            <a class="btn btn--outline" href="resources.html">Watch how to use an AED</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="img/logo-260.png" alt="" width="260" height="246" loading="lazy">
+          <p>Dingle Heart Safe is a volunteer Community First Responder scheme, dispatched by the National Ambulance Service to life-threatening emergencies in and around Dingle.</p>
+          <a class="footer__social" href="https://www.instagram.com/dingleheartsafe/" target="_blank" rel="noopener"><span class="ig-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg></span>Follow @dingleheartsafe<span class="visually-hidden"> on Instagram</span></a>
+        </div>
+        <div>
+          <h2 class="footer__title">Explore</h2>
+          <ul class="footer__links">
+            <li><a href="aed.html">AED locations</a></li>
+            <li><a href="who-we-are.html">Who we are</a></li>
+            <li><a href="what-we-do.html">What we do</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="join.html">Join the team</a></li>
+            <li><a href="donate.html">Donate</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer__title">Get in touch</h2>
+          <ul class="footer__links">
+            <li><a href="mailto:cfrdingle@gmail.com">cfrdingle@gmail.com</a></li>
+            <li><a href="https://www.instagram.com/dingleheartsafe/" target="_blank" rel="noopener">Instagram: @dingleheartsafe</a></li>
+            <li><a href="contact.html">Report a damaged or missing AED</a></li>
+            <li><a href="https://www.idonate.ie/cause/DingleCFR1" target="_blank" rel="noopener">Donate through iDonate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Dingle Heart Safe. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy policy</a></p>
+        <p>In an emergency always call <a href="tel:112">112</a> or <a href="tel:999">999</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="action-bar" data-action-bar aria-label="Quick actions">
+    <div class="action-bar__inner">
+      <a class="btn" href="tel:112"><svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>Call 112</a>
+    </div>
+  </nav>
+
+  <script src="aed-data.js"></script>
+  <script src="aed-finder.js" defer></script>
+  <script src="site.js" defer></script>
 </body>
 </html>

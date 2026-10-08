@@ -1,62 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate - Dingle Heart Safe</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Donate · Dingle Heart Safe</title>
+  <meta name="description" content="Dingle Heart Safe is entirely volunteer-run. Donate securely through iDonate to fund AEDs, replacement pads and response kits for our responders in Dingle.">
+  <meta name="theme-color" content="#E31837">
+  <link rel="canonical" href="https://dingleheartsafe.com/donate.html">
+  <link rel="icon" href="img/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dingle Heart Safe">
+  <meta property="og:title" content="Donate · Dingle Heart Safe">
+  <meta property="og:description" content="Dingle Heart Safe is entirely volunteer-run. Donate securely through iDonate to fund AEDs, replacement pads and response kits for our responders in Dingle.">
+  <meta property="og:image" content="https://dingleheartsafe.com/img/og-donate.jpg">
+  <meta property="og:url" content="https://dingleheartsafe.com/donate.html">
+  <link rel="preload" href="fonts/atkinson-hyperlegible-next-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <nav>
-        <div class="nav-logo"><a href="index.html"><img src="CFR Logo.png" alt="Logo"></a></div>
-        <button class="hamburger" id="hamburger-btn">☰</button>
-        <div class="nav-links" id="nav-menu">
-            <a href="index.html">Home</a>
-            <a href="aed.html">AED Locations</a>
-            <a href="who-we-are.html">Who We Are</a>
-            <a href="what-we-do.html">What We Do</a>
-            <a href="news.html">News</a>
-            <a href="resources.html">Resources</a>
-            <a href="donate.html" class="active">Donate</a>
-            <a href="join.html">Join</a>
-            <a href="contact.html">Contact</a>
-        </div>
+<body class="has-action-bar">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="nav__logo" href="index.html"><img src="img/logo-170.png" alt="Dingle Heart Safe" width="170" height="161"></a>
+      <button class="nav__toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu"><span class="nav__bars"></span><span class="visually-hidden">Menu</span></button>
+      <ul class="nav__links" id="site-menu" data-menu>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aed.html">AED Locations</a></li>
+        <li><a href="who-we-are.html">Who We Are</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav__social"><a href="https://www.instagram.com/dingleheartsafe/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg><span class="nav__social-label">Instagram</span><span class="visually-hidden"> @dingleheartsafe</span></a></li>
+        <li class="nav__cta"><a class="btn btn--sm" href="donate.html" aria-current="page">Donate</a></li>
+        <li class="nav__cta"><a class="btn btn--aed btn--sm" href="aed.html#find-aed">Nearest AED</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <main class="container">
-        <h2>Donate</h2>
-        <div class="grid-2">
-            <div class="card">
-                <h3>Where do your donations go?</h3>
-                <p><small style="color: var(--primary); font-weight: 600;">Processed securely by iDonate. We do not store card details.</small></p>
-                <p>Our group is entirely volunteer-run and relies solely on the generosity of the public and local businesses to operate. Your donations directly fund the purchase and maintenance of life-saving equipment on the peninsula.</p>
-                
-                <ul style="line-height: 1.8; margin-bottom: 2rem;">
-                    <li><strong>AED Purchase:</strong> €1,200</li>
-                    <li><strong>Replacement AED pads:</strong> €160</li>
-                    <li><strong>Replacement AED Response Kit:</strong> €30 (Facemask, Scissors, Towel, Razor)</li>
-                </ul>
-                
-                <p>Kitting out our responders is only possible with generous donations. If you’re in a position to donate, please click below.</p>
-                
-                <a href="https://www.idonate.ie/cause/DingleCFR1" target="_blank" class="btn" style="margin-top: 1rem;">Donate Securely Now</a>
-            </div>
-            <div>
-                <img src="Image 7.jpeg" alt="Emergency equipment setup showing where donations go">
-            </div>
+  <main id="main">
+
+    <!-- Why it matters -->
+    <section class="page-head page-head--donate" aria-labelledby="page-title">
+      <div class="container page-head__inner page-head__inner--photo">
+        <div>
+          <p class="eyebrow">Why it matters</p>
+          <h1 id="page-title">What your donation keeps ready</h1>
+          <p class="lede">Ambulances often travel a long way to reach us. Because our responders live and work locally, they can often be on scene within minutes, ready to start CPR and use an AED.</p>
+          <p>We are entirely volunteer-run and rely on the generosity of the public and local businesses. Your support pays for that kit, from the AED itself to replacement pads and response kits.</p>
         </div>
-    </main>
+        <figure class="media media--ratio-3-4 page-head__still">
+          <img src="img/photo-aed-cabinet-1600.jpg" srcset="img/photo-aed-cabinet-800.jpg 800w, img/photo-aed-cabinet-1600.jpg 1500w" sizes="(min-width: 820px) 40vw, 100vw" width="1500" height="2000" alt="An illuminated green public access defibrillator cabinet on a wall, with a sign reading Call 112" fetchpriority="high">
+          <figcaption>Your donations keep defibrillators like this one ready</figcaption>
+        </figure>
+      </div>
+    </section>
 
-    <footer>
-        <img src="CFR Logo.png" alt="Logo">
-        <p>&copy; 2026 Dingle Heart Safe. All Rights Reserved.</p>
-        <p><a href="privacy.html">Privacy Policy</a></p>
-    </footer>
+    <!-- Donate any amount -->
+    <section class="section section--ink donate-cta" aria-label="Donate through iDonate">
+      <div class="container text-center">
+        <a class="donate-cta__btn" href="https://www.idonate.ie/cause/DingleCFR1" target="_blank" rel="noopener">
+          <span class="donate-cta__icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
+          <span class="donate-cta__text"><strong>Click here</strong><span>to securely donate any amount, small or large, through iDonate</span></span>
+          <span class="visually-hidden"> (opens in a new tab)</span>
+        </a>
+        <p class="donate-cta__note">Processed securely by iDonate. We do not store card details.</p>
+      </div>
+    </section>
 
-    <script>
-        document.getElementById('hamburger-btn').addEventListener('click', function() {
-            document.getElementById('nav-menu').classList.toggle('active');
-        });
-    </script>
+    <!-- Every little helps -->
+    <section class="section" aria-labelledby="costs-title">
+      <div class="container container--narrow">
+        <div class="section__head section__head--center" data-reveal>
+          <p class="eyebrow">Every little helps</p>
+          <h2 id="costs-title">A sample of our responders&rsquo; equipment costs</h2>
+          <p class="lede">We welcome donations from anyone, small or big. Choose an amount to start your donation on iDonate with it filled in.</p>
+        </div>
+        <div class="price-cards" data-reveal="2">
+          <div class="card card--accent price-card">
+            <b>€30</b><span>Replacement response kit: facemask, scissors, towel, razor</span>
+            <a class="btn btn--sm price-card__btn" href="https://www.idonate.ie/donate/cause/DingleCFR1?amount=30" target="_blank" rel="noopener">Donate €30<span class="visually-hidden"> through iDonate (opens in a new tab)</span></a>
+          </div>
+          <div class="card card--accent price-card">
+            <b>€160</b><span>Replacement AED pads</span>
+            <a class="btn btn--sm price-card__btn" href="https://www.idonate.ie/donate/cause/DingleCFR1?amount=160" target="_blank" rel="noopener">Donate €160<span class="visually-hidden"> through iDonate (opens in a new tab)</span></a>
+          </div>
+          <div class="card card--accent price-card">
+            <b>€1,200</b><span>One AED</span>
+            <a class="btn btn--sm price-card__btn" href="https://www.idonate.ie/donate/cause/DingleCFR1?amount=1200" target="_blank" rel="noopener">Donate €1,200<span class="visually-hidden"> through iDonate (opens in a new tab)</span></a>
+          </div>
+        </div>
+        <div class="mt-3" data-reveal="3">
+          <div class="notice">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <p><strong>Thank you, Kerry County Council.</strong> Their financial assistance is key to the continued work we do at Dingle Heart Safe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other ways to help -->
+    <section class="section section--tint" aria-labelledby="help-title">
+      <div class="container split split--reverse">
+        <div data-reveal>
+          <p class="eyebrow">Other ways to help</p>
+          <h2 id="help-title">Give your time, or ask us anything</h2>
+          <p>You can also help by joining the team, or get in touch if you have a question about donating.</p>
+          <div class="btn-row mt-2">
+            <a class="btn btn--outline" href="join.html">Join the team</a>
+            <a class="btn" href="contact.html">Contact us</a>
+          </div>
+        </div>
+        <figure class="media media--ratio-16-9" data-reveal="2">
+          <img src="img/nas-still-61-1600.jpg" srcset="img/nas-still-61-800.jpg 800w, img/nas-still-61-1600.jpg 1600w" sizes="(min-width: 820px) 50vw, 100vw" width="1600" height="900" alt="A responder in blue gloves lifts a yellow AED from its response bag beside a person lying on the ground" loading="lazy">
+          <figcaption>Lifting an AED from its response bag. Photo: National Ambulance Service</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="img/logo-260.png" alt="" width="260" height="246" loading="lazy">
+          <p>Dingle Heart Safe is a volunteer Community First Responder scheme, dispatched by the National Ambulance Service to life-threatening emergencies in and around Dingle.</p>
+          <a class="footer__social" href="https://www.instagram.com/dingleheartsafe/" target="_blank" rel="noopener"><span class="ig-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg></span>Follow @dingleheartsafe<span class="visually-hidden"> on Instagram</span></a>
+        </div>
+        <div>
+          <h2 class="footer__title">Explore</h2>
+          <ul class="footer__links">
+            <li><a href="aed.html">AED locations</a></li>
+            <li><a href="who-we-are.html">Who we are</a></li>
+            <li><a href="what-we-do.html">What we do</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="join.html">Join the team</a></li>
+            <li><a href="donate.html">Donate</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer__title">Get in touch</h2>
+          <ul class="footer__links">
+            <li><a href="mailto:cfrdingle@gmail.com">cfrdingle@gmail.com</a></li>
+            <li><a href="https://www.instagram.com/dingleheartsafe/" target="_blank" rel="noopener">Instagram: @dingleheartsafe</a></li>
+            <li><a href="contact.html">Report a damaged or missing AED</a></li>
+            <li><a href="https://www.idonate.ie/cause/DingleCFR1" target="_blank" rel="noopener">Donate through iDonate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Dingle Heart Safe. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy policy</a></p>
+        <p>In an emergency always call <a href="tel:112">112</a> or <a href="tel:999">999</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="action-bar" data-action-bar aria-label="Quick actions">
+    <div class="action-bar__inner">
+      <a class="btn" href="tel:112"><svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>Call 112</a>
+    </div>
+  </nav>
+
+  <script src="site.js" defer></script>
 </body>
 </html>
