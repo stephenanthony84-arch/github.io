@@ -45,8 +45,10 @@
     }
   }
 
-  /* Arriving from a "Nearest AED" link (page#find-aed): start the search straight away */
-  if (finderButton && finderRoot && window.location.hash === '#find-aed') {
+  /* Arriving from a "Nearest AED" link (page#find-aed): start the search straight away.
+     Phones and tablets only: computers get the AED Locations button instead of the finder. */
+  var finePointer = !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
+  if (finderButton && finderRoot && !finePointer && window.location.hash === '#find-aed') {
     window.setTimeout(function () { finderButton.click(); }, 350);
   }
 
@@ -67,6 +69,9 @@
       for (var j = 0; j < revealables.length; j++) { io.observe(revealables[j]); }
     }
   }
+
+  /* Reveal is set up: tell the head script not to fall back to showing everything */
+  window.dhsReady = true;
 
   /* Phone action bar: hide while a nearest-AED finder is on screen */
   var bar = document.querySelector('[data-action-bar]');
@@ -250,6 +255,84 @@
     }, { passive: true });
     window.addEventListener('resize', updateDeco);
     updateDeco();
+  }
+
+  /* Top bar title (phones and tablets): "Dingle Heart Safe" slides into the bar as the page title
+     scrolls up underneath it. --brand-p runs from 0 (page title fully below the bar) to 1. */
+  var siteHeader = document.querySelector('.site-header');
+  var brandTitle = document.querySelector('.nav__title');
+  var pageTitle = document.querySelector('main h1');
+  if (siteHeader && brandTitle) {
+    var brandTicking = false;
+    var updateBrand = function () {
+      brandTicking = false;
+      var barBottom = siteHeader.getBoundingClientRect().bottom;
+      var p;
+      if (pageTitle) {
+        var tr = pageTitle.getBoundingClientRect();
+        p = (barBottom - tr.top) / Math.max(tr.height, 1);
+      } else {
+        p = (window.pageYOffset || 0) / 160;
+      }
+      p = Math.max(0, Math.min(1, p));
+      if (reduceMotion) { p = p >= 0.5 ? 1 : 0; }
+      siteHeader.style.setProperty('--brand-p', p.toFixed(3));
+    };
+    window.addEventListener('scroll', function () {
+      if (!brandTicking) { brandTicking = true; window.requestAnimationFrame(updateBrand); }
+    }, { passive: true });
+    window.addEventListener('resize', updateBrand);
+    updateBrand();
+  }
+
+  /* Top bar heart monitor: draw a heartbeat trace exactly the size of the bar (so beats never
+     stretch), in four layers: a faint still line, plus a tail, glow and bright head that CSS sweeps
+     along it with stroke-dashoffset. */
+  var pulseBox = document.querySelector('.site-header__pulse');
+  if (pulseBox && document.createElementNS) {
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+    var pulseSvg = document.createElementNS(SVG_NS, 'svg');
+    pulseSvg.setAttribute('class', 'pulse-trace');
+    pulseSvg.setAttribute('preserveAspectRatio', 'none');
+    pulseSvg.setAttribute('focusable', 'false');
+    var pulsePaths = ['base', 'tail', 'glow', 'head'].map(function (layer) {
+      var path = document.createElementNS(SVG_NS, 'path');
+      path.setAttribute('class', 'pulse-trace__' + layer);
+      path.setAttribute('pathLength', '1');
+      pulseSvg.appendChild(path);
+      return path;
+    });
+    pulseBox.appendChild(pulseSvg);
+    var pulseWidth = 0;
+    var drawTrace = function () {
+      var w = Math.round(pulseBox.clientWidth);
+      var h = Math.round(pulseBox.clientHeight) || 72;
+      if (!w || w === pulseWidth) { return; }
+      pulseWidth = w;
+      var y = Math.round(h * 0.53);
+      var gap = w < 700 ? 125 : 200;
+      var d = 'M0,' + y;
+      for (var bx = Math.round(gap * 0.4); bx + 64 < w; bx += gap) {
+        d += ' L' + bx + ',' + y +
+          ' Q' + (bx + 5) + ',' + (y - 6) + ' ' + (bx + 10) + ',' + y +   /* P wave */
+          ' L' + (bx + 18) + ',' + y +
+          ' L' + (bx + 21) + ',' + (y + 4) +                             /* Q */
+          ' L' + (bx + 27) + ',' + (y - 25) +                            /* R spike */
+          ' L' + (bx + 33) + ',' + (y + 12) +                            /* S */
+          ' L' + (bx + 37) + ',' + y +
+          ' L' + (bx + 46) + ',' + y +
+          ' Q' + (bx + 54) + ',' + (y - 9) + ' ' + (bx + 62) + ',' + y;  /* T wave */
+      }
+      d += ' L' + w + ',' + y;
+      pulseSvg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+      for (var pp = 0; pp < pulsePaths.length; pp++) { pulsePaths[pp].setAttribute('d', d); }
+    };
+    drawTrace();
+    var traceResize = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(traceResize);
+      traceResize = setTimeout(drawTrace, 150);
+    });
   }
 
   /* Footer year */

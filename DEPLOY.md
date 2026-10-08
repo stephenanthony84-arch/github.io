@@ -1,6 +1,6 @@
 # Dingle Heart Safe website: how it fits together
 
-The site is plain HTML, one stylesheet and three small scripts. There is no build step.
+The site is plain HTML, one stylesheet and five small scripts. There is no build step.
 Upload or push everything in this folder (except what `.gitignore` lists) to the GitHub
 repository that serves dingleheartsafe.com, and GitHub Pages publishes it.
 
@@ -49,3 +49,12 @@ same design. If Behold is ever unreachable, the saved posts are shown instead.
 The videos in `video/` were made from the workshop clips. To swap one, export a
 short, silent, portrait MP4 at 720 x 1280 (and a 480 x 854 copy for phones),
 give it the same file name, and replace the poster JPG with a frame from it.
+
+## After changing styles.css or a script
+
+Every page loads `styles.css?v=20261008e` and `site.js?v=20261008e` (and the other scripts the same way).
+Phones keep old copies of these files for a while, so when you change `styles.css` or any `.js` file,
+change the `?v=` number in all ten pages to today's date (for example `?v=20261124`) before uploading.
+To do this in one go, use "Replace in Files" in your editor (in VS Code: Edit, then Replace in Files)
+to change the number the pages use now (at the moment `?v=20261008e`) to the new one in all the `.html`
+files. Any new number works, as long as it is different from the old one.

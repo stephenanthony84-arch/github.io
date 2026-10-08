@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.dhsReady){document.documentElement.classList.add('reveal-fallback')}},3000)</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Join the team · Dingle Heart Safe</title>
   <meta name="description" content="Become a volunteer Community First Responder in Dingle. We provide full, accredited training and no prior medical experience is needed.">
-  <meta name="theme-color" content="#E31837">
+  <meta name="theme-color" content="#E31837" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#170C10" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://dingleheartsafe.com/join.html">
   <link rel="icon" href="img/favicon-64.png" type="image/png">
   <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
@@ -17,27 +19,30 @@
   <meta property="og:image" content="https://dingleheartsafe.com/img/nas-still-69-1600.jpg">
   <meta property="og:url" content="https://dingleheartsafe.com/join.html">
   <link rel="preload" href="fonts/atkinson-hyperlegible-next-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261008e">
 </head>
 <body class="has-action-bar">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
+    <span class="site-header__pulse" aria-hidden="true"></span>
     <nav class="nav container" aria-label="Main">
       <a class="nav__logo" href="index.html"><img src="img/logo-170.png" alt="Dingle Heart Safe" width="170" height="161"></a>
+      <span class="nav__title" aria-hidden="true">Dingle Heart Safe</span>
       <button class="nav__toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu"><span class="nav__bars"></span><span class="visually-hidden">Menu</span></button>
       <ul class="nav__links" id="site-menu" data-menu>
         <li><a href="index.html">Home</a></li>
-        <li><a href="aed.html">AED Locations</a></li>
+        <li class="for-touch"><a href="aed.html">AED Locations</a></li>
         <li><a href="who-we-are.html">Who We Are</a></li>
         <li><a href="what-we-do.html">What We Do</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="join.html" aria-current="page">Join</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li class="nav__social"><a href="https://www.instagram.com/dingleheartsafe/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg><span class="nav__social-label">Instagram</span><span class="visually-hidden"> @dingleheartsafe</span></a></li>
+        <li class="nav__social"><a href="https://www.instagram.com/dingleheartsafe/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg><span class="nav__social-label">Instagram</span><span class="visually-hidden"> @dingleheartsafe</span></a></li>
         <li class="nav__cta"><a class="btn btn--sm" href="donate.html">Donate</a></li>
-        <li class="nav__cta"><a class="btn btn--aed btn--sm" href="aed.html#find-aed">Nearest AED</a></li>
+        <li class="nav__cta for-touch"><a class="btn btn--aed btn--sm" href="aed.html#find-aed">Nearest AED</a></li>
+        <li class="nav__cta for-desktop"><a class="btn btn--aed btn--sm" href="aed.html">AED Locations</a></li>
       </ul>
     </nav>
   </header>
@@ -54,7 +59,7 @@
           <p class="lede">When a cardiac emergency strikes, every single minute counts. As a Community First Responder, you could be the person who starts the chain of survival while the ambulance is on its way.</p>
           <div class="btn-row mt-2">
             <a class="btn btn--lg" href="mailto:cfrdingle@gmail.com?subject=Joining%20Dingle%20Heart%20Safe">
-              <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <svg class="btn__icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
               Email us about joining
             </a>
           </div>
@@ -64,8 +69,8 @@
           <noscript><img class="video-card__poster" src="video/workshop-poster.jpg" width="720" height="1280" alt="A nursing student practises chest compressions on a manikin at our workshop"></noscript>
           <figcaption>Scenes from our latest CPR and defibrillator workshop</figcaption>
           <button class="video-toggle" type="button" data-video-toggle>
-            <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7 5h3.5v14H7zm6.5 0H17v14h-3.5z"/></svg>
-            <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7 5h3.5v14H7zm6.5 0H17v14h-3.5z"/></svg>
+            <svg class="icon-play" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></svg>
             <span class="visually-hidden">Pause background video</span>
           </button>
         </figure>
@@ -80,7 +85,7 @@
           <h2 id="volunteer-title">Support your community in a meaningful way</h2>
           <p>If you would like to support your community in a meaningful way, we would love to welcome you to our team. We provide full, accredited training, and absolutely no prior medical experience is needed.</p>
           <div class="notice mt-2">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
             <div>
               <p><strong>Email us at <a href="mailto:cfrdingle@gmail.com?subject=Joining%20Dingle%20Heart%20Safe">cfrdingle@gmail.com</a> to learn more about the process of joining.</strong></p>
             </div>
@@ -102,17 +107,17 @@
         </div>
         <div class="cards">
           <article class="card" data-reveal>
-            <div class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></div>
+            <div class="card__icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></div>
             <h3>Full accredited training</h3>
             <p>We provide full, accredited training, so you are ready to step in when it matters.</p>
           </article>
           <article class="card" data-reveal="2">
-            <div class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 12a4.8 4.8 0 1 0 0-9.6 4.8 4.8 0 0 0 0 9.6zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            <div class="card__icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 12a4.8 4.8 0 1 0 0-9.6 4.8 4.8 0 0 0 0 9.6zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
             <h3>No medical background needed</h3>
             <p>Absolutely no prior medical experience is needed. All you need is the wish to support your community.</p>
           </article>
           <article class="card" data-reveal="3">
-            <div class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+            <div class="card__icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
             <h3>Be there when it counts</h3>
             <p>You don't just stand by. You step in when your neighbours can't wait.</p>
           </article>
@@ -133,7 +138,7 @@
         </div>
         <div class="btn-row btn-row--center" data-reveal="2">
           <a class="btn btn--lg" href="mailto:cfrdingle@gmail.com?subject=Joining%20Dingle%20Heart%20Safe">
-            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <svg class="btn__icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Email us about joining
           </a>
           <a class="btn btn--outline btn--lg" href="what-we-do.html">What responders do</a>
@@ -149,7 +154,7 @@
         <div class="footer__brand">
           <img src="img/logo-260.png" alt="" width="260" height="246" loading="lazy">
           <p>Dingle Heart Safe is a volunteer Community First Responder scheme, dispatched by the National Ambulance Service to life-threatening emergencies in and around Dingle.</p>
-          <a class="footer__social" href="https://www.instagram.com/dingleheartsafe/" target="_blank" rel="noopener"><span class="ig-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg></span>Follow @dingleheartsafe<span class="visually-hidden"> on Instagram</span></a>
+          <a class="footer__social" href="https://www.instagram.com/dingleheartsafe/" target="_blank" rel="noopener"><span class="ig-badge"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg></span>Follow @dingleheartsafe<span class="visually-hidden"> on Instagram</span></a>
         </div>
         <div>
           <h2 class="footer__title">Explore</h2>
@@ -183,10 +188,10 @@
 
   <nav class="action-bar" data-action-bar aria-label="Quick actions">
     <div class="action-bar__inner">
-      <a class="btn" href="tel:112"><svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>Call 112</a>
+      <a class="btn" href="tel:112"><svg class="btn__icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>Call 112</a>
     </div>
   </nav>
 
-  <script src="site.js" defer></script>
+  <script src="site.js?v=20261008e" defer></script>
 </body>
 </html>

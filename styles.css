@@ -131,6 +131,7 @@ strong { color: var(--ink); }
   border-radius: var(--radius-sm);
 }
 .skip-link:focus { top: calc(var(--nav-h) + .5rem); }
+.skip-link:hover { color: var(--white); }
 
 .container {
   width: min(var(--container), 100% - 2 * var(--gutter));
@@ -266,6 +267,7 @@ strong { color: var(--ink); }
     border-bottom: 1px solid var(--rule);
     box-shadow: 0 20px 40px -20px rgba(26, 10, 14, .3);
     max-height: calc(100vh - var(--nav-h));
+    max-height: calc(100dvh - var(--nav-h));
     overflow-y: auto;
   }
   .nav__links.is-open { display: flex; }
@@ -632,6 +634,7 @@ strong { color: var(--ink); }
 .emergency__text svg { width: 32px; height: 32px; flex: none; }
 .emergency__text strong { color: var(--white); font-size: 1.15em; }
 .emergency .btn--ghost { border-color: rgba(255, 255, 255, .85); }
+.emergency .btn--ghost:hover { background: var(--red-deep); border-color: var(--white); }
 .emergency :focus-visible { outline-color: var(--white); }
 
 /* --------------------------------------------------------------------------
@@ -1155,6 +1158,8 @@ strong { color: var(--ink); }
   transition: opacity .7s var(--ease), transform .7s var(--ease);
 }
 .js [data-reveal].is-visible { opacity: 1; transform: none; }
+/* site.js did not run within 3 s (see the head script): show everything */
+.reveal-fallback [data-reveal] { opacity: 1; transform: none; }
 .js [data-reveal="2"].is-visible { transition-delay: .12s; }
 .js [data-reveal="3"].is-visible { transition-delay: .24s; }
 
@@ -1524,6 +1529,7 @@ html:not(.js) .video-toggle, html:not(.js) .video-card video, html:not(.js) .her
 
 /* Nav: the current-page Donate pill keeps a readable white label */
 .nav__links a.btn[aria-current="page"] { color: var(--white); background: var(--red-deep); }
+.nav__links a.btn--aed[aria-current="page"] { color: var(--ink); background: var(--aed-deep); }
 
 /* Background pulse lines: kept in a section's empty top or bottom padding,
    so they read as heartbeat dividers and never cross a heading or paragraph */
@@ -1586,7 +1592,7 @@ main:has(> .section--ink:last-child) + .site-footer { box-shadow: none; border-t
 }
 @media (max-width: 819px) { .page-head--donate .page-head__still { display: none; } }
 .donate-cta { padding-block: clamp(2.75rem, 6vw, 4.5rem); background: radial-gradient(60% 120% at 50% 0%, rgba(227, 24, 55, .22), transparent 70%), var(--ink); }
-.donate-cta__text span { font-size: clamp(1.05rem, 2vw, 1.3rem); font-weight: 600; line-height: 1.35; color: rgba(255, 255, 255, .92); }
+.donate-cta__text span { font-size: clamp(1.05rem, 2vw, 1.3rem); font-weight: 600; line-height: 1.35; color: var(--white); }
 .donate-cta__btn { box-shadow: 0 0 0 1px rgba(255, 255, 255, .08) inset, 0 24px 60px -20px rgba(227, 24, 55, .8); }
 .card--accent { border-top: 0; position: relative; overflow: hidden; }
 .card--accent::before { content: ""; position: absolute; inset: 0 0 auto; height: 5px; background: var(--red); }
@@ -1631,3 +1637,226 @@ main:has(> .section--ink:last-child) + .site-footer { box-shadow: none; border-t
 
 /* Privacy: clause headings sized for a policy, not a brochure */
 .prose h2 { font-size: clamp(1.4rem, 2.2vw, 1.75rem); margin-top: 1.9em; margin-bottom: .5em; }
+
+/* The site has its own light and dark themes (dark follows the phone or computer setting). */
+:root { color-scheme: light dark; }
+
+/* Very large text (phone text-size settings around 150 to 160 %): let rows and long words wrap */
+.aed-directory__item { flex-wrap: wrap; }
+.aed-directory__item > div { flex: 1 1 10rem; min-width: 0; }
+.notice a, .prose a, .ig-band__handle { overflow-wrap: anywhere; }
+@media (max-width: 300px) {
+  .price-cards .price-card { grid-template-columns: 1fr; text-align: center; }
+  .price-cards .price-card b { grid-row: auto; }
+  .price-card .price-card__btn { justify-self: center; }
+}
+
+/* ==========================================================================
+   Round 5 (October 2026): top bar title and pulse, phone-only finder buttons, AED page
+   ========================================================================== */
+
+/* Phones and tablets keep "Find my nearest AED"; computers with a mouse get "AED Locations" */
+@media (hover: hover) and (pointer: fine) { .for-touch { display: none !important; } }
+@media not all and (hover: hover) and (pointer: fine) { .for-desktop { display: none !important; } }
+
+/* Top bar: a heart-rate monitor. site.js draws a heartbeat trace the width of the bar; a bright
+   beam with a fading tail runs along it left to right, lighting up each beat as it passes, then
+   the beam restarts. Red in light mode, light pink in dark mode (colour comes from currentColor). */
+.nav { position: relative; z-index: 1; }
+.site-header__pulse {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  color: var(--red);
+}
+.pulse-trace { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pulse-trace path {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pulse-trace__base { stroke-width: 1.2; opacity: .05; }
+.pulse-trace__tail { stroke-width: 1.6; opacity: .13; stroke-dasharray: .3 3; stroke-dashoffset: .3; animation: monitorTail 4.2s linear infinite; }
+.pulse-trace__glow { stroke-width: 2; opacity: .26; stroke-dasharray: .1 3; stroke-dashoffset: .1; animation: monitorGlow 4.2s linear infinite; }
+.pulse-trace__head { stroke-width: 2.6; opacity: .55; stroke-dasharray: .02 3; stroke-dashoffset: .02; animation: monitorHead 4.2s linear infinite; }
+/* the beam crosses in the first 75% of each cycle, then the screen rests before the next sweep */
+@keyframes monitorTail { 0% { stroke-dashoffset: .3; } 75%, 100% { stroke-dashoffset: -1.02; } }
+@keyframes monitorGlow { 0% { stroke-dashoffset: .1; } 75%, 100% { stroke-dashoffset: -1.22; } }
+@keyframes monitorHead { 0% { stroke-dashoffset: .02; } 75%, 100% { stroke-dashoffset: -1.3; } }
+
+/* Top bar title: slides in as the page title scrolls under the bar (site.js sets --brand-p) */
+.nav__title { display: none; }
+@media (max-width: 1199px) {
+  .nav__title {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-family: var(--font-display);
+    font-size: clamp(12px, 4.6vw, 1.4rem); /* px floor: a larger phone text size must not push it into the logo or menu button */
+    line-height: 1;
+    letter-spacing: .005em;
+    color: var(--ink);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: var(--brand-p, 0);
+    transform: translate(-50%, calc(-50% + (1 - var(--brand-p, 0)) * 16px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-trace__tail, .pulse-trace__glow, .pulse-trace__head { display: none; }
+  .pulse-trace__base { opacity: .12; }
+  .nav__title { transform: translate(-50%, -50%); transition: opacity .2s linear; }
+}
+
+/* AED page heading: the expansion sits on its own line, smaller */
+.aed-head__expansion {
+  display: block;
+  margin-top: .4em;
+  font-size: .46em;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, .8);
+}
+
+/* ==========================================================================
+   Dark mode (prefers-color-scheme: dark)
+   Used when the visitor's phone or computer is set to dark. Everything dark
+   lives here; light mode is untouched. Photos keep their colours, and the
+   yellow AED buttons keep their yellow and dark text in both themes.
+   --ink and --white stay as they are, because they are used both as text and
+   as background colours; the rules below override the selectors instead.
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark palette */
+    --dk-base: #170C10;      /* page background */
+    --dk-tint: #22151B;      /* tint sections, light page heads */
+    --dk-card: #2C1C23;      /* cards, notices, result and list rows */
+    --dk-band: #0D0709;      /* ink bands, hero, footer: a touch darker than the page */
+    --dk-text: #F6E9EC;      /* headings and strong text */
+    --dk-text-2: #E6D5DA;    /* body copy */
+    --dk-muted: #C9B5BB;     /* secondary text */
+    --dk-red: #FF6B81;       /* red text and links on dark: 5.9:1 on cards, 7:1 on the page */
+    --dk-red-hover: #FF94A4;
+    --dk-red-num: #FF5C74;   /* large display numbers */
+    --dk-line: rgba(255, 255, 255, .1);
+    --dk-line-soft: rgba(255, 255, 255, .07);
+
+    /* Tokens that only ever mean one thing can simply be redefined */
+    --paper: var(--dk-base);
+    --paper-2: var(--dk-tint);
+    --ink-2: var(--dk-text-2);
+    --muted: var(--dk-muted);
+    --rule: var(--dk-line);
+    --red-soft: #3D1822;
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, .35), 0 10px 28px -10px rgba(0, 0, 0, .6);
+    --shadow-2: 0 2px 4px rgba(0, 0, 0, .4), 0 22px 44px -14px rgba(227, 24, 55, .32);
+  }
+
+  /* Base text, links and focus */
+  h1, h2, h3, h4, strong { color: var(--dk-text); }
+  a { color: var(--dk-red); }
+  a:hover { color: var(--dk-red-hover); }
+  .site-footer a:hover, .insta-tile:hover { color: var(--white); }
+  :focus-visible { outline-color: var(--dk-red); }
+  .eyebrow { color: var(--dk-red); }
+  .skip-link, .skip-link:hover { background: var(--dk-text); color: var(--ink); }
+
+  /* Top bar: dark glass, light title and menu lines, light pink pulse */
+  .site-header { background: rgba(23, 12, 16, .92); border-bottom-color: rgba(255, 255, 255, .08); }
+  .nav__title { color: var(--dk-text); }
+  .nav__bars, .nav__bars::before, .nav__bars::after { background: var(--dk-text); }
+  .nav__toggle[aria-expanded="true"] .nav__bars { background: transparent; }
+  .site-header__pulse { color: #F7A8B8; }
+  .pulse-trace__base { opacity: .08; }
+  .nav__links a:not(.btn) { color: var(--dk-text); }
+  .nav__links a[aria-current="page"]:not(.btn) { color: var(--dk-red); }
+  .nav__links .nav__social a { color: var(--dk-text); }
+  .nav__links .nav__social a:hover { color: var(--dk-red); }
+
+  /* Buttons (red and yellow buttons are unchanged) */
+  .btn--outline { color: var(--dk-red); border-color: var(--dk-red); }
+  .btn--outline:hover { border-color: var(--red); }
+  .btn--ink { background: var(--dk-text); color: var(--ink); box-shadow: 0 6px 18px -6px rgba(0, 0, 0, .6); }
+  .btn--ink:hover { background: var(--white); color: var(--ink); }
+  .btn--text { color: var(--dk-red); }
+  .btn--text:hover { color: var(--dk-red-hover); }
+
+  /* Sections: the page is near-black, tint sections a step lighter,
+     and the already-dark bands a step darker with a hairline at each edge */
+  .section--white { background: var(--dk-base); }
+  .section--ink, .page-head--ink, .hero, .hero__media, .site-footer { background-color: var(--dk-band); }
+  .section--ink, .page-head--ink { box-shadow: inset 0 1px 0 var(--dk-line-soft), inset 0 -1px 0 var(--dk-line-soft); }
+  .site-footer { box-shadow: inset 0 1px 0 var(--dk-line-soft); }
+  .donate-cta { background: radial-gradient(60% 120% at 50% 0%, rgba(227, 24, 55, .22), transparent 70%), var(--dk-band); }
+  .donate-cta__text span { color: var(--white); }
+  .photo-band::before { background: linear-gradient(rgba(26, 10, 14, .5), rgba(26, 10, 14, .84) 65%, var(--dk-band)); }
+  .page-head::after { background: radial-gradient(closest-side, rgba(227, 24, 55, .16), transparent 70%); }
+  .page-head--ink::after { background: radial-gradient(closest-side, rgba(227, 24, 55, .3), transparent 70%); }
+
+  /* Cards and other white boxes become raised dark panels */
+  .card, .notice, .aed-result, .aed-list__item, .aed-directory__item, .post, .press-card, .map-report, .section--tint .quote {
+    background-color: var(--dk-card);
+  }
+  .card { border-color: var(--dk-line-soft); }
+  .card--red { background-color: var(--red); border-color: transparent; }
+  .card--ink { background-color: var(--dk-band); border-color: var(--dk-line-soft); }
+  .card--tint { background-color: var(--dk-tint); }
+  .notice, .aed-list__item, .aed-directory__item, .post, .press-card, .map-report { box-shadow: var(--shadow-1), inset 0 0 0 1px var(--dk-line-soft); }
+  .card__icon { color: var(--dk-red); }
+  .card--red .card__icon { color: var(--white); }
+  .notice svg, .map-report__text svg { color: var(--dk-red); }
+  .quote { color: var(--dk-text); }
+  .quote::before { color: var(--dk-red); opacity: .55; }
+  .press-card h3 { color: var(--dk-text); }
+  .press-card__source, .press-card__more { color: var(--dk-red); }
+  .price-cards b, .map-facts b, .tips li::before { color: var(--dk-red-num); }
+
+  /* Home area map: light place names, a faint light coastline, red dots with a dark ring.
+     The label halo is the section's own background colour, so it hides the coastline
+     behind the letters without showing as a border. */
+  .pen-map__coast { stroke: var(--dk-text); opacity: .42; }
+  .pen-map__aeds circle { stroke: var(--dk-tint); }
+  .pen-map__labels text { fill: var(--dk-text-2); stroke: var(--dk-tint); }
+  .section:not(.section--tint) .pen-map__aeds circle, .section:not(.section--tint) .pen-map__labels text { stroke: var(--dk-base); }
+
+  /* Nearest-AED finder results and the AED directory */
+  .finder--light[data-state="error"] .finder__status { color: var(--dk-text); }
+  .aed-result { color: var(--dk-text-2); }
+  .aed-result__name, .aed-list__name, .aed-list__dist, .aed-directory__name { color: var(--dk-text); }
+  .aed-result__warn { color: var(--dk-text); }
+  .finder .aed-result a:not(.btn), .finder .aed-list__item a:not(.btn), .aed-list__link { color: var(--dk-red); }
+  .finder .aed-result :focus-visible, .finder .aed-list__item :focus-visible, .aed-list__item :focus-visible { outline-color: var(--dk-red); }
+  .aed-list__item::before { color: var(--dk-red); }
+
+  /* Instagram */
+  .ig-band__handle, .post__handle { color: var(--dk-text); }
+  .ig-band__handle:hover, .post__handle:hover { color: var(--dk-red); }
+  .post__more { color: var(--dk-red); }
+
+  /* Background graphics: the light versions used on dark bands, in every section */
+  .deco--ecg .deco__a { opacity: .14; }
+  .deco--heart .deco__a { opacity: .1; }
+  .deco--contour .deco__b { opacity: .1; }
+  .deco--contour .deco__a { filter: brightness(0) invert(1); opacity: .06; }
+  .deco--ecg .deco__b, .deco--heart .deco__b { filter: brightness(0) invert(1); opacity: .16; }
+}
+
+/* Dark mode on phones and tablets: the open menu panel and stacked photo captions */
+@media (prefers-color-scheme: dark) and (max-width: 1199px) {
+  .nav__links { background: var(--dk-base); border-bottom-color: var(--dk-line); box-shadow: 0 24px 40px -20px rgba(0, 0, 0, .8); }
+}
+@media (prefers-color-scheme: dark) and (max-width: 560px) {
+  .media--ratio-16-9 figcaption { background: var(--dk-card); color: var(--dk-text-2); }
+}
+
+/* Dark mode with reduced motion: the still pulse line */
+@media (prefers-color-scheme: dark) and (prefers-reduced-motion: reduce) {
+  .pulse-trace__base { opacity: .16; }
+}
+
+/* Top-bar title: no room for it on the very narrowest screens */
+@media (max-width: 279px) { .nav__title { display: none; } }
